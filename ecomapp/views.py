@@ -1,9 +1,19 @@
 from django.shortcuts import render
+from ecomapp.models import Setting
+from product.models import Product
 
 
 # Create your views here.
 def home(request):
-    name = "Emad" 
-    job = "Mechanical engineer"
+    setting = Setting.objects.get(id=1)
+    sliding_images = Product.objects.all().order_by("id")[:2]
+    context={"setting":setting,
+            "sliding_images":sliding_images
+    
+            }
    
-    return render(request, "home.html",{"name":name, "job":job})
+    return render(request, "home.html", context)
+
+
+
+    

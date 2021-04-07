@@ -1,13 +1,13 @@
 {% extends "index.html" %}
 {% load static %}
 
-{% block title %}           {% endblock %}
+{% block title %}    {{setting.title}}     {% endblock %}
 {% block description %}     {% endblock %}
 {% block keywords %}        {% endblock %}   
  
 
            {% block header %}
-             
+             {% include "header.html" %}
            {% endblock  %}
 
             {% block sidebar %}
@@ -27,3 +27,8 @@
 <!-- Begin Product Area -->
 
 {% endblock  %}
+
+
+{% block footer %}
+            {% include "footer.html" %}
+ {% endblock  %}
