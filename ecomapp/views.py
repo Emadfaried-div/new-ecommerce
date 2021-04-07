@@ -6,4 +6,4 @@ def home(request):
     name = "Emad" 
     job = "Mechanical engineer"
    
-    return render(request, "index.html",{"name":name, "job":job})
+    return render(request, "home.html",{"name":name, "job":job})
