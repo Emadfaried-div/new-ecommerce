@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('',include("ecomapp.urls")),
+    path('',include("ecomapp.urls",namespace="ecomapp")),
     path('admin/', admin.site.urls),
     
 ]

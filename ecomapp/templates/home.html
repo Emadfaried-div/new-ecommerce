@@ -1,6 +1,8 @@
 {% extends "index.html" %}
 {% load static %}
 
+
+{% block style %}{% endblock  %}
 {% block title %}    {{setting.title}}     {% endblock %}
 {% block description %}     {% endblock %}
 {% block keywords %}        {% endblock %}   
@@ -15,7 +17,7 @@
             {% endblock  %}
 
             {% block slider %}
-            {% include "slider.html" %}
+            {% include "slider1.html" %}
             {% endblock %}
 
 

@@ -1,0 +1,105 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block style %}{% endblock  %}
+{% block title %}  Single Product  {% endblock %}
+{% block description %}     {% endblock %}
+{% block keywords %}        {% endblock %}   
+ 
+
+           {% block header %}
+             {% include "header.html" %}
+           {% endblock  %}
+           {% block slider %}
+             {% include "slider1.html" %}
+           {% endblock slider %}
+
+{% block another_content %}
+
+
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active">About Us</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Li's Breadcrumb Area End Here -->
+<!-- about wrapper start -->
+<div class="about-us-wrapper pt-60 pb-40">
+    <div class="container">
+        <div class="row">
+            <!-- About Text Start -->
+            <div class="col-lg-6 order-last order-lg-first">
+                <div class="about-text-wrap">
+                    <h2><span>Provide Best</span>Product For You</h2>
+                    <p>We provide the best Beard oile all over the world. We are the worldd best store in indi for Beard Oil. You can buy our product without any hegitation because they truste us and buy our product without any hagitation because they belive and always happy buy our product.</p>
+                    <p>Some of our customer say’s that they trust us and buy our product without any hagitation because they belive us and always happy to buy our product.</p>
+                    <p>We provide the beshat they trusted us and buy our product without any hagitation because they belive us and always happy to buy.</p>
+                </div>
+            </div>
+            <!-- About Text End -->
+            <!-- About Image Start -->
+            <div class="col-lg-5 col-md-10">
+                <div class="about-image-wrap">
+                    <img class="img-full" src="{% static 'images/product/large-size/13.jpg' %}" alt="About Us" />
+                </div>
+            </div>
+            <!-- About Image End -->
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-member mb-30 mb-sm-60 mb-xs-60">
+                    <div class="team-thumb">
+                        <img src="{% static 'images/Emad.jpg' %}" alt="Our Team Member">
+                    </div>
+                    <div class="team-content text-center">
+                        <h3>Emad Faried</h3>
+                        <p>Project Manager</p>
+                        <a href="#">nemhfa@gmail.com</a>
+                        <div class="team-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-member mb-30 mb-sm-60 mb-xs-60">
+                    <div class="team-thumb">
+                        <img src="{% static 'images/admins.jpg' %}" alt="Our Team Member">
+                    </div>
+                    <div class="team-content text-center">
+                        <h3>Usama & Ibrahim</h3>
+                        <p>Project Admins</p>
+                        <a href="#">nemhfa@gmail.com</a>
+                        <div class="team-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+
+
+
+{% endblock another_content %}
+
+{% block footer %}
+            {% include "footer.html" %}
+ {% endblock  %}

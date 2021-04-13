@@ -1,13 +1,17 @@
 from django.db import models
 from django.utils.safestring import mark_safe
 
+from mptt.models import MPTTModel, TreeForeignKey
+
 # Create your models here.
 
-class Category(models.Model):
+class Category(MPTTModel):
     status=(
         ("True","True"),
         ("False","False"),
     )
+    parent = TreeForeignKey("self", on_delete=models.CASCADE, blank=True, null=True, related_name="children")
+
     title = models.CharField(max_length=200)
     keywords = models.CharField(max_length=100)
     image = models.ImageField(blank=True, null=True, upload_to="category/")
@@ -17,10 +21,13 @@ class Category(models.Model):
     slug = models.SlugField(null=True, unique=True)
 
 
+    class MPTTMeta:
+        order_insertion_by = ['title']
+
     def __str__(self):
         return self.title
 
-    parent = models.ForeignKey("Category", on_delete=models.CASCADE, blank=True, null=True, related_name="children")
+    
 
 
 class Product(models.Model):
@@ -47,7 +54,17 @@ class Product(models.Model):
 
     def image_tag(self):
         return mark_safe('<img src="{} " heights="70" width="60" \> '.format(self.image.url))
-    image_tag.short_description="image"    
+    image_tag.short_description="image" 
+
+    def ImageUrl(self):
+        if self.image:
+            return self.image.url
+        else:
+            return ""   
+
+    def get_absolute_url(self):
+
+        return reversed("product_element", kwargs={'slug':self.slug})       
 
 class Images(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
