@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 # Create your models here.
 
@@ -39,10 +40,10 @@ class ContactMessage(models.Model):
         ("Read","Read"),
         ("Closed","Closed"),
         )
-    name=models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     email = models.EmailField()
     subject = models.CharField(max_length=100,blank=True, null=True)
-    message = models.CharField(max_length=50,blank=True, null=True)
+    message = models.TextField(blank=True, null=True)
     status = models.CharField(max_length=200, choices=STATUS, default="New")
     ip= models.CharField(max_length=100,blank=True, null=True)
     note = models.CharField(max_length=200,blank=True, null=True)
@@ -51,4 +52,8 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return self.name
-    
+
+
+
+            
+        

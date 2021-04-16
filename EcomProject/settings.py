@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'ecomapp',
     'product',
     'mptt',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +144,6 @@ SITE_ID = 1
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CRISPY_TEMPLATE_PACK = 'uni_form'

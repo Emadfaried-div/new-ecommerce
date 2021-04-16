@@ -1,7 +1,9 @@
-from django.shortcuts import render, HttpResponse
-from ecomapp.models import Setting
-from product.models import Product, Images, Category
+from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect
+from ecomapp.models import *
+from product.models import *
+from .forms import *
 from django.views.generic import  TemplateView
+from django.urls import reverse
     
 
 
@@ -31,6 +33,32 @@ def about(request):
         context={"setting":setting,
         "category":category,}
         return render(request,"about.html", context)
+
+
+def contact(request):
+
+        if request.method == 'POST':
+                form = ContactForm(request.POST)
+                if form.is_valid():
+                        data = ContactMessage()
+                        data.name = form.cleaned_data['name']
+                        data.email = form.cleaned_data['email']
+                        data.subject = form.cleaned_data['subject']
+                        data.message = form.cleaned_data['message']
+                        data.ip = request.META.get('REMOTE_ADDR')
+                        data.save()
+                        #messages.success(request, 'Profile details updated.')
+                        return redirect('contact_dat')
+        setting = Setting.objects.get(pk=1)
+        category= Category.objects.all()
+        form = ContactForm
+        context = {
+                        'setting': setting,
+                        'form': form,
+                        "category":category,
+                }
+        return render (request, "contact_form.html", context )
+                
 
 
 class SingleProductView(TemplateView):
@@ -68,4 +96,23 @@ def category_product(request,id, slug):
 
 
 
-    
+def searchview(request):
+        if request.method=="POST":
+                form=searchform(request.POST)  
+                if form.is_valid():
+                        query = form.cleaned_data['query']
+                        cat_id = form.cleaned_data['cat_id']
+                        if cat_id == 0:
+                                products = Product.objects.filter(title__icontains=query)
+                        else:
+                                products = Product.objects.filter(
+                                        title__icontains=query, category_id=cat_id
+                                )
+                        category = Category.objects.all()
+                        context = {
+                                "category":category,
+                                "query":query,
+                                "product_cat":products,
+                        }
+                        return(request, "category_product.html", context)
+        return HttpResponseRedirect("category_product")
