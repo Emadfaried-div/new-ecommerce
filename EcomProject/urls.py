@@ -19,8 +19,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('',include("ecomapp.urls",namespace="ecomapp")),
+    
     path('admin/', admin.site.urls),
+    path('',include("ecomapp.urls",namespace="ecomapp")),
+    path('order/',include('orderapp.urls',namespace="orderapp")),
+    path('user/',include('UserApp.urls',namespace="UserApp")),
+   
+    
+    
     
 ]
 if settings.DEBUG:

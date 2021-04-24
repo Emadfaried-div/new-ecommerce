@@ -25,6 +25,13 @@
             </ul>
         </div>
     </div>
+    <div>
+        {% if messages %} {% for message in messages %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+            {{message}}
+        </div>
+        {% endfor %}{% endif %}
+    </div>
 </div>
 <!-- Li's Breadcrumb Area End Here -->
 <!-- content-wraper start -->
@@ -98,16 +105,22 @@
                         </div>
                         
                         <div class="single-add-to-cart">
-                            <form action="#" class="cart-quantity">
+                            <form action="{% url 'orderapp:Add_to_Shoping_cart' id=single_product.id %}" class="cart-quantity" method="post">
+                                {% csrf_token %}
                                 <div class="quantity">
+                                    
                                     <label>Quantity</label>
                                     <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" value="1" type="text">
+                                        
+                                        <input class="cart-plus-minus-box" value="1" min="1" 
+                                        max="{{single_product.amount}}"  type="number" name="quantity">
                                         <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
                                         <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                     </div>
                                 </div>
+                              
                                 <button class="add-to-cart" type="submit">Add to cart</button>
+                                
                             </form>
                         </div>
                         <div class="product-additional-info pt-25">
@@ -342,7 +355,7 @@
                                     </div>
                                     <div class="add-actions">
                                         <ul class="add-actions-link">
-                                            <li class="add-cart active"><a href="#">Add to cart</a></li>
+                                            <li class="add-cart active"><a href="{% url 'orderapp:Add_to_Shoping_cart' id=p.id %}">Add to cart</a></li>
                                             <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
                                             <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
                                         </ul>

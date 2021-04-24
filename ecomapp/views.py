@@ -1,15 +1,35 @@
 from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect
 from ecomapp.models import *
 from product.models import *
+
 from .forms import *
 from django.views.generic import  TemplateView
 from django.urls import reverse
+import product
+from orderapp.models import *
+
     
 
 
 
 # Create your views here.
 def home(request):
+        current_user = request.user
+        cart_product= ShopCart.objects.filter(user_id=current_user.id)
+        total_amount = 0
+        for p in cart_product:
+            if p.product.discount_price:
+                total_amount += p.product.discount_price * p.quantity
+            elif p.product.price:
+                    
+                total_amount += p.product.price * p.quantity
+                        
+                
+
+
+
+
+
         category= Category.objects.all()
         setting = Setting.objects.get(id=1)
         sliding_images = Product.objects.all().order_by('id')  [:2]
@@ -21,6 +41,8 @@ def home(request):
             "latest_products":latest_products,
             "products":products,
             "category":category,
+            "cart_product":cart_product,
+                "total_amount":total_amount,
     
             }
    
@@ -72,7 +94,9 @@ class SingleProductView(TemplateView):
                 images = Images.objects.filter(product__slug=url_slug)
                 products = Product.objects.all().order_by("id")[:5]
                 category= Category.objects.all()
+               
                 single_product.save()
+                single_product.min_amount==1
                 context={"setting":setting,
                 "single_product":single_product,
                 "images":images,
@@ -97,8 +121,8 @@ def category_product(request,id, slug):
 
 
 def searchview(request):
-        if request.method=="POST":
-                form=searchform(request.POST)  
+        if request.method=="GET":
+                form=SearchForm(request.GET)  
                 if form.is_valid():
                         query = form.cleaned_data['query']
                         cat_id = form.cleaned_data['cat_id']
@@ -109,10 +133,15 @@ def searchview(request):
                                         title__icontains=query, category_id=cat_id
                                 )
                         category = Category.objects.all()
+                        setting= Setting.objects.get(id=1)
+                        sliding_images = Product.objects.all().order_by('id')  [:4]
                         context = {
                                 "category":category,
                                 "query":query,
                                 "product_cat":products,
+                                "setting":setting,
+                                "sliding_images":sliding_images,
                         }
-                        return(request, "category_product.html", context)
+                        return render (request, "category_product.html", context)
         return HttpResponseRedirect("category_product")
+

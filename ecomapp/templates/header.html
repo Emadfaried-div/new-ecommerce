@@ -25,9 +25,15 @@
                                     <div class="ht-setting-trigger"><span>Setting</span></div>
                                     <div class="setting ht-setting">
                                         <ul class="ht-setting-list">
-                                            <li><a href="login-register.html">My Account</a></li>
+                                            {% if request.user.is_authenticated %}
+                                            <li><a href="#">Hi {{request.user.username}}</a></li>
+                                            <li><a href="{% url 'UserApp:userprofile' %}">My profile</a></li>
                                             <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="login-register.html">Sign In</a></li>
+                                            <li><a href="{% url 'UserApp:user_logout' %}">Logout</a></li>
+                                            {% else %}
+                                            <li><a href="{% url 'UserApp:user_login' %}">Login</a></li>
+                                            <li><a href="{% url 'UserApp:user_register' %}"> Register as a New customer?!</a></li>
+                                            {% endif %}
                                         </ul>
                                     </div>
                                 </li>
@@ -35,10 +41,10 @@
                                 <!-- Begin Currency Area -->
                                 <li>
                                     <span class="currency-selector-wrapper">Currency :</span>
-                                    <div class="ht-currency-trigger"><span>USD $</span></div>
+                                    <div class="ht-currency-trigger"><span>EGP</span></div>
                                     <div class="currency ht-currency">
                                         <ul class="ht-setting-list">
-                                            <li><a href="#">EUR €</a></li>
+                                            <li><a href="#">EGP</a></li>
                                             <li class="active"><a href="#">USD $</a></li>
                                         </ul>
                                     </div>
@@ -80,7 +86,8 @@
                     <!-- Begin Header Middle Right Area -->
                     <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                         <!-- Begin Header Middle Searchbox Area -->
-                        <form action="{% url 'ecomapp:searchview' %}" class="hm-searchbox"  method="POST"  >
+                        <form action="{% url 'ecomapp:searchview' %}" class="hm-searchbox"  method="GET"  >
+                            {% csrf_token %}
                             <select   name="cat_id" class="nice-select select-search-category">
 
                                 <option value="0">All</option>   
@@ -113,41 +120,41 @@
                                 <li class="hm-minicart">
                                     <div class="hm-minicart-trigger">
                                         <span class="item-icon"></span>
-                                        <span class="item-text">£80.00
-                                            <span class="cart-item-count">2</span>
+                                        <span class="item-text">EGP{{total_amount}}
+                                            <span class="cart-item-count">{{cart_product.count}}</span>
                                         </span>
                                     </div>
                                     <span></span>
                                     <div class="minicart">
                                         <ul class="minicart-product-list">
+                                            {% for p in cart_product %}
+                                              
+                                            
                                             <li>
                                                 <a href="single-product.html" class="minicart-product-image">
-                                                    <img src="{% static  'images/product/small-size/1.jpg' %}" alt="cart products">
+                                                    <img src="{{ p.product.ImageUrl }}" alt="cart products">
                                                 </a>
                                                 <div class="minicart-product-details">
-                                                    <h6><a href="single-product.html">Aenean eu tristique</a></h6>
-                                                    <span>£40 x 1</span>
+                                                    <h6><a href="single-product.html">{{p.product.title}}</a></h6>
+                                                    <span><span class="amount">{% if p.product.discount_price %}
+                                                        <span class="mr-1" style="color:red;">
+                                                         <del>EGP{{ p.product.price }}</del>
+                                                        </span>
+                                                         <span>EGP{{ p.product.discount_price }} * {{p.quantity}}</span>
+                                                    {% else %}
+                                                        <span>EGP{{ p.product.price }}* {{p.quantity}}</span>
+                                                    {% endif %}</span></td></span>
                                                 </div>
                                                 <button class="close">
                                                     <i class="fa fa-close"></i>
                                                 </button>
                                             </li>
-                                            <li>
-                                                <a href="single-product.html" class="minicart-product-image">
-                                                    <img src="{% static  'images/product/small-size/2.jpg' %}" alt="cart products">
-                                                </a>
-                                                <div class="minicart-product-details">
-                                                    <h6><a href="single-product.html">Aenean eu tristique</a></h6>
-                                                    <span>£40 x 1</span>
-                                                </div>
-                                                <button class="close">
-                                                    <i class="fa fa-close"></i>
-                                                </button>
-                                            </li>
+                                            {% endfor %}
+                                           
                                         </ul>
-                                        <p class="minicart-total">SUBTOTAL: <span>£80.00</span></p>
+                                        <p class="minicart-total">SUBTOTAL: <span>EGP{{total_amount}}</span></p>
                                         <div class="minicart-button">
-                                            <a href="checkout.html" class="li-button li-button-dark li-button-fullwidth li-button-sm">
+                                            <a href="{% url 'orderapp:cart_details' %}" class="li-button li-button-dark li-button-fullwidth li-button-sm">
                                                 <span>View Full Cart</span>
                                             </a>
                                             <a href="checkout.html" class="li-button li-button-fullwidth li-button-sm">

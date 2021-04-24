@@ -43,8 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ecomapp',
     'product',
+    'orderapp',
+    'UserApp',
     'mptt',
     'crispy_forms',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
@@ -146,4 +149,4 @@ SITE_ID = 1
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CRISPY_TEMPLATE_PACK = 'uni_form'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

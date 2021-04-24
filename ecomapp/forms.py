@@ -1,5 +1,5 @@
 from django import forms
-from ecomapp.models import ContactMessage
+from ecomapp.models import *
 
 
 class ContactForm(forms.ModelForm):
@@ -16,4 +16,10 @@ class ContactForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     query=forms.CharField(max_length=200)
-    cat_id = forms.IntegerField()
+    cat_id = forms.IntegerField(max_value=6)
+
+
+
+
+
+  
