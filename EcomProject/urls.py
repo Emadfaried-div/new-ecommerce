@@ -24,6 +24,7 @@ urlpatterns = [
     path('',include("ecomapp.urls",namespace="ecomapp")),
     path('order/',include('orderapp.urls',namespace="orderapp")),
     path('user/',include('UserApp.urls',namespace="UserApp")),
+    path("product/",include("product.urls",namespace="product")),
    
     
     

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import user_logout, user_login, user_register, user_update, user_password
+from UserApp.views import user_logout, user_login, user_register, user_update, user_password,usercomment, comment_delete
 from UserApp.views import usrprofiledata
 app_name='UserApp'
 
@@ -10,4 +10,6 @@ urlpatterns = [
     path('userprofile/',usrprofiledata, name='userprofile' ),
     path('user_update/',user_update, name='user_update' ),
     path('password_update/',user_password, name='user_password' ),
+    path('user_comment/',usercomment, name='usercomment' ),
+    path('comment_delete/<int:id>/',comment_delete, name='comment_delete' ),
 ]

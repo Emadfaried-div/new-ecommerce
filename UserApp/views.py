@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout,authenticate, login,update_session_auth_hash
-from product.models import Category
+from product.models import Category,Comment,Product
 from ecomapp.models import Setting
 from django.contrib import messages
 from .forms import SingUpForm, UserUpdateForm, ProfileUpdateForm
@@ -34,7 +34,7 @@ def user_login(request):
 
 
 
-
+@login_required
 def user_logout(request):
     logout(request)
     return redirect('ecomapp:home')
@@ -69,7 +69,7 @@ def user_register(request):
     return render(request, 'user_register.html', context)
 
 
-
+@login_required
 def usrprofiledata(request):
     category = Category.objects.all()
     setting = Setting.objects.get(id=1)
@@ -108,7 +108,7 @@ def user_update(request):
     return render(request, "userupdate.html", context)
 
 
-@login_required
+@login_required()
 def user_password(request):
     if request.method == "POST":
         form=PasswordChangeForm(request.user, request.POST)
@@ -129,6 +129,29 @@ def user_password(request):
                 "form":form,
                 }
         return render(request,"userpasswordupdate.html",context)
+
+@login_required()
+def usercomment(request):
+    category = Category.objects.all()
+    setting = Setting.objects.get(id=1)
+    current_user=request.user
+    comment=Comment.objects.filter(user_id=current_user.id)
+
+    context={"setting":setting,
+                "category":category,
+                "comment":comment,
+                }
+    return render(request,"usercomment.html",context)
+
+
+def comment_delete(request,id):
+   
+    current_user=request.user
+    comment=Comment.objects.filter(user_id=current_user.id,id=id)
+    comment.delete()
+    messages.success(request, 'your message was successfuly deleted!.')
+    return redirect("UserApp:usercomment")
+
     
 
 

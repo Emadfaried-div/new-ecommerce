@@ -1,5 +1,5 @@
 {% extends "index.html" %}
-
+{% load humanize %}
 {% load static %}
 
 {% block style %}{% endblock  %}
@@ -57,16 +57,16 @@
                                   
                                 
                                 <tr>
-                                    <td class="li-product-remove"><a href="{% url 'orderapp:cart_delete' id=p.id %}"><i class="fa fa-times"></i></a></td>
+                                    <td class="li-product-remove"><a href="{% url 'orderapp:cart_delete' id=p.id %}" onclick="return confirm('Are You sure delete your product?')"><i class="fa fa-times"></i></a></td>
                                     <td class="li-product-thumbnail"><a href="#"><img src="{{p.product.ImageUrl}}" style="width:150px; height:150px;" alt="Li's Product Image"></a></td>
                                     <td class="li-product-name"><a href="#">{{p.product.title}}</a></td>
                                     <td class="li-product-price"><span class="amount">{% if p.discount_price %}
                                         <span class="mr-1" style="color:red;">
-                                         <del>EGP{{ p.price }}</del>
+                                         <del>EGP{{ p.price|intcomma  }}</del>
                                         </span>
-                                         <span>EGP{{ p.discount_price }}</span>
+                                         <span>EGP{{ p.discount_price|intcomma  }}</span>
                                     {% else %}
-                                        <span>EGP{{ p.price }}</span>
+                                        <span>EGP{{ p.price|intcomma  }}</span>
                                     {% endif %}</span></td>
                                     <td class="quantity">
                                         <label>Quantity</label>
@@ -76,7 +76,7 @@
                                             <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                         </div>
                                     </td>
-                                    <td class="product-subtotal"><span class="amount">EGP{{p.amount}}</span></td>
+                                    <td class="product-subtotal"><span class="amount">EGP{{p.amount|intcomma }}</span></td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
@@ -101,10 +101,10 @@
                                 <h2>Cart totals</h2>
                                 <ul>
                                     
-                                    <li>Total <span>EGP{{total_amount}}</span></li>
+                                    <li>Total <span>EGP{{total_amount|intcomma }}</span></li>
                                 </ul>
                                 <a class='btn btn-primary float-right' href='/'>Continue shopping</a>
-                                <a href="#">Proceed to checkout</a>
+                                <a href="{% url 'orderapp:OrderCart' %}">Proceed to checkout</a>
                             </div>
                         </div>
                     </div>

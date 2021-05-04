@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect
 from ecomapp.models import *
 from product.models import *
-
+from django.contrib import messages
 from .forms import *
 from django.views.generic import  TemplateView
 from django.urls import reverse
@@ -79,6 +79,7 @@ def contact(request):
                         'form': form,
                         "category":category,
                 }
+        messages.success(request, 'Your message was successfully sent.')
         return render (request, "contact_form.html", context )
                 
 
@@ -93,6 +94,7 @@ class SingleProductView(TemplateView):
                 setting= Setting.objects.get(id=1)
                 images = Images.objects.filter(product__slug=url_slug)
                 products = Product.objects.all().order_by("id")[:5]
+#                comment_show = Comment.objects.filter(product_id=id, status='True')
                 category= Category.objects.all()
                
                 single_product.save()
@@ -101,6 +103,7 @@ class SingleProductView(TemplateView):
                 "single_product":single_product,
                 "images":images,
                 "category":category,
+                #"comment_show":comment_show,
                 "products":products}
                 return context
 

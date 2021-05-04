@@ -8,7 +8,7 @@ class UserProfile(models.Model):
     phone=models.CharField(max_length=20,blank=True, null=True)
     address=models.CharField(max_length=200,blank=True, null=True)
     city=models.CharField(max_length=100,blank=True, null=True)
-    country=CountryField(blank=True, null=True)
+    country=models.CharField(max_length=200,null=True)
     image=models.ImageField(upload_to='user_image',blank=True, null=True)
 
     def __str__(self):

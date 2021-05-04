@@ -19,7 +19,7 @@ class ShopCart(models.Model):
            return self.product.discount_price
         else:
             return self.product.price
-
+    @property
     def amount(self):
         if self.product.discount_price:
             
@@ -48,13 +48,13 @@ class Order(models.Model):
         ('Cancelled', 'Cancelled')
             )
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    first_name=models.CharField(max_length=200)  
+    first_name= models.CharField(max_length=200)  
     last_name=models.CharField(max_length=200)       
     code=models.CharField(max_length=15,editable=False) 
     phone=models.CharField(max_length=200,blank=True, null=True)  
     address=models.CharField(max_length=200)   
     city=models.CharField(max_length=200)  
-    country=CountryField(blank=True, null=True)
+    country=models.CharField(max_length=200,null=True)
     total=models.FloatField()
     status = models.CharField(choices=STATUS, max_length=20, default='New')
     ip = models.CharField(max_length=200, blank=True)
@@ -74,7 +74,7 @@ class Order(models.Model):
 
 
 
-class OderForm(ModelForm):
+class OrderForm(ModelForm):
     class Meta:
         model = Order
         fields = ['first_name', 'last_name',
@@ -82,7 +82,7 @@ class OderForm(ModelForm):
 
 
 
-class OderProduct(models.Model):
+class OrderProduct(models.Model):
     STATUS = (
         ('New', 'New'),
         ('Accepted', 'Accepted'),

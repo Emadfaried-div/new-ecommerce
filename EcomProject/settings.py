@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'mptt',
     'crispy_forms',
     'django_countries',
+    'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [
