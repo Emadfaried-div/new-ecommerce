@@ -12,5 +12,5 @@ urlpatterns = [
     path("product/<slug:slug>/", SingleProductView.as_view(), name="product_single"),
     path("product/<int:id>/<slug:slug>/", category_product, name="category_product"),
     path("search/",searchview,name="searchview"),
-    
+    path("faq/",Faq_details,name="Faq_details"),
 ]

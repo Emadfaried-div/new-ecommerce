@@ -32,7 +32,7 @@ def home(request):
 
         category= Category.objects.all()
         setting = Setting.objects.get(id=1)
-        sliding_images = Product.objects.all().order_by('id')  [:2]
+        sliding_images = Product.objects.all().order_by('id')  [:4]
         latest_products = Product.objects.all().order_by("-id")
         products = Product.objects.all()
         
@@ -148,3 +148,15 @@ def searchview(request):
                         return render (request, "category_product.html", context)
         return HttpResponseRedirect("category_product")
 
+def Faq_details(request):
+    category = Category.objects.all()
+    setting = Setting.objects.get(id=1)
+    faq = FAQ.objects.filter(status=True).order_by('created_at')
+
+    context = {
+        'category': category,
+        'setting': setting,
+        'faq': faq
+
+    }
+    return render(request, 'faq.html', context)
