@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+
 
 <div class="slider-with-banner">
     <div class="container">
@@ -8,7 +10,7 @@
                 <!--Category Menu Start-->
                 <div class="category-menu">
                     <div class="category-heading">
-                        <h2 class="categories-toggle"><span>categories</span></h2>
+                        <h2 class="categories-toggle"><span>{% trans 'Categories' %}</span></h2>
                     </div>
                     <div id="cate-toggle" class="category-menu-list">
                         {% load mptt_tags %}
@@ -19,7 +21,7 @@
                                 {% if not node.is_leaf_node %} 
                                 <ul class="cat-mega-menu">
                                     <li class="right-menu cat-mega-title"> 
-                                       <a href="#">Sub Category</a>
+                                       <a href="#">{% trans 'Sub Category' %}</a>
                                         <ul>
                                             <li><a href="{% url 'ecomapp:category_product' id=node.id slug=node.slug %}">{{ children }}</a></li>
                                             
@@ -49,11 +51,13 @@
                           
                         
                         <div class="single-slide align-center-left  animation-style-0{{p.id}} bg-{{p.id}}">
+                            {% if p.image %}
                             <img src="{{p.image.url}}" alt="placeholder+image"/>
+                            {% endif%}
                             <div class="slider-progress"></div>
                             <div class="slider-content">
                                 <h5>Sale Offer <span>-20% Off</span> This Week</h5>
-                                <h2>{{p.title}}|256GB</h2>
+                                <h1>{{p.title}}|256GB</h1>
                                 <h5>{{p.description|truncatewords:9 }}</h5>
                                 {% if p.discount_price %}
                                     <span class="mr-1" style="color:red;">
@@ -64,7 +68,7 @@
                                     <span>EGP{{ p.price }}</span>
                                 {% endif %}
                                 <div class="default-btn slide-btn">
-                                    <a class="links" href="shop-left-sidebar.html">Shopping Now</a>
+                                    <a class="links" href="{% url 'ecomapp:product_single' p.slug %}">{% trans 'Shopping Now' %}</a>
                                 </div>
                             </div>
                         </div>

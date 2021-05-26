@@ -16,6 +16,7 @@ def Add_to_Shoping_cart(request, id):
     current_user = request.user
     checking = ShopCart.objects.filter(
         product_id=id, user_id=current_user.id)
+        
     if checking:
         control = 1
     else:
@@ -33,6 +34,7 @@ def Add_to_Shoping_cart(request, id):
                 data = ShopCart()
                 data.user_id = current_user.id
                 data.product_id = id
+                
                 data.quantity = form.cleaned_data['quantity']
                 data.save()
         messages.success(request, 'Your Product  has been added')
@@ -40,13 +42,14 @@ def Add_to_Shoping_cart(request, id):
     else:
         if control == 1:
             data = ShopCart.objects.filter(
-                product_id=id, user_id=current_user.id)
+            product_id = id, user_id=current_user.id)
             data.quantity += 1
             data.save()
         else:
             data = ShopCart()
             data.user_id = current_user.id
             data.product_id = id
+            
             data.quantity = 1
             data.save()
         messages.success(request, 'Your  product has been added')
@@ -78,7 +81,7 @@ def cart_details(request):
     return render(request,"cart_details.html", context)
 
 
-
+@login_required()
 def cart_delete(request,id):
     url = request.META.get('HTTP_REFERER')
     current_user = request.user
@@ -122,6 +125,7 @@ def OrderCart(request):
                 data = OrderProduct()
                 data.order_id = dat.id
                 data.product_id = rs.product_id
+                
                 data.user_id = current_user.id
                 data.quantity = rs.quantity
                 if rs.product.discount_price:
@@ -133,8 +137,12 @@ def OrderCart(request):
                 data.save()
 
                 product = Product.objects.get(id=rs.product_id)
+                
+                
                 product.amount -= rs.quantity
+                
                 product.save()
+                
             # Now remove all oder data from the shoping cart
             ShopCart.objects.filter(user_id=current_user.id).delete()
             # request.session['cart_item']=0

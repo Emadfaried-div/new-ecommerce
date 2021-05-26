@@ -17,19 +17,21 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import ugettext_lazy as _
 
-urlpatterns = [
+urlpatterns = [path('i18n/', include('django.conf.urls.i18n')),]
+
+urlpatterns += i18n_patterns(
     
-    path('admin/', admin.site.urls),
-    path('',include("ecomapp.urls",namespace="ecomapp")),
+    path(_('admin/'), admin.site.urls),
+    path(_(''),include("ecomapp.urls",namespace="ecomapp")),
     path('order/',include('orderapp.urls',namespace="orderapp")),
     path('user/',include('UserApp.urls',namespace="UserApp")),
     path("product/",include("product.urls",namespace="product")),
-   
-    
-    
-    
-]
+        
+    )
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,
                           document_root=settings.STATIC_ROOT)

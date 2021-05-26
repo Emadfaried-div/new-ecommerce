@@ -1,5 +1,5 @@
 {% extends "index.html" %}
-
+{% load i18n %}
 {% load static %}
 
 {% block style %}{% endblock  %}
@@ -32,28 +32,28 @@
                 <form action="{% url 'UserApp:user_login' %}" method="POST" >
                     {% csrf_token %}
                     <div class="login-form">
-                        <h4 class="login-title">Login</h4>
+                        <h4 class="login-title">{% trans 'Login' %}</h4>
                         <div class="row">
                             <div class="col-md-12 col-12 mb-20">
-                                <label>Username *</label>
+                                <label>{% trans 'Username ' %}*</label>
                                 <input class="mb-0" type="text" placeholder="username"  name="username">
                             </div>
                             <div class="col-12 mb-20">
-                                <label>Password</label>
+                                <label>{% trans 'Password' %}</label>
                                 <input class="mb-0" type="password" placeholder="Password" name="password">
                             </div>
                             <div class="col-md-8">
                                 <div class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                                     <input type="checkbox" id="remember_me">
-                                    <label for="remember_me">Remember me</label>
+                                    <label for="remember_me">{% trans 'Remember me' %}</label>
                                 </div>
                             </div>
                             <div class="col-md-4 mt-10 mb-20 text-left text-md-right">
-                                <a href="#"> Forgotten pasward?</a><br>
-                                <a href="{% url 'UserApp:user_register' %}"> Register as a New customer?!</a>
+                                <a href="#"> {% trans 'Forgotten pasward?' %}</a><br>
+                                <a href="{% url 'UserApp:user_register' %}"> {% trans  'Register as a New customer?!' %}</a>
                             </div>
                             <div class="col-md-12">
-                                <button class="register-button mt-0">Login</button>
+                                <button class="register-button mt-0">{% trans 'Login' %}</button>
                             </div>
                         </div>
                     </div>

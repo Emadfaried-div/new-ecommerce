@@ -35,6 +35,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
    'adminlte3',
    'adminlte3_theme',
+
+   'modeltranslation',
+   
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +48,11 @@ INSTALLED_APPS = [
     'product',
     'orderapp',
     'UserApp',
+    'ckeditor',
+    
+  
+  
+    
     'mptt',
     'crispy_forms',
     'django_countries',
@@ -54,6 +62,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -73,7 +82,9 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                "django.template.context_processors.i18n",
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processor.cart_total_amount',
             ],
         },
     },
@@ -116,6 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ar'
 
 TIME_ZONE = 'UTC'
 
@@ -125,7 +137,17 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+LANGUAGES = [
+    ('ar', ('Arabic')),
+    ('en', ('English')),
+]
+LOCALE_PATHS=[
+    os.path.join(BASE_DIR,'locale')
+]
+LANGUAGES= [
+    ('ar','Arabic'),
+    ('en','English,'),
+]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 import os
@@ -151,3 +173,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+
+CART_SESSION_ID = 'cart'
+
+
+LOGIN_REDIRECT_URL = '/'
+PASSWORD_CHANGE_REDIRECT_URL="/home"
+
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'nemhfa@gmail.com'
+EMAIL_HOST_PASSWORD = 'wvrapvugfecpitxp'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_PORT = '587'

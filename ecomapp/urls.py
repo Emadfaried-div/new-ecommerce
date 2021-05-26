@@ -13,4 +13,8 @@ urlpatterns = [
     path("product/<int:id>/<slug:slug>/", category_product, name="category_product"),
     path("search/",searchview,name="searchview"),
     path("faq/",Faq_details,name="Faq_details"),
+    path("send/",send,name="send"),
+    path("offers/", OffersView.as_view(), name= "offers"),
+   
+    
 ]

@@ -1,5 +1,5 @@
 from django.db import models
-from product .models import Product
+from product .models import *
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 from django.utils.safestring import mark_safe
@@ -9,6 +9,7 @@ from django_countries.fields import CountryField
 
 class ShopCart(models.Model):
     product=models.ForeignKey(Product,on_delete=models.CASCADE,null=True)
+    
     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     quantity=models.PositiveIntegerField()
 
@@ -25,7 +26,7 @@ class ShopCart(models.Model):
             
            return self.quantity*self.product.discount_price
         else:
-            return self.quantity*self.product.price
+            return self.quantity*self.product .price
 
 
     def __str__(self):
@@ -91,6 +92,7 @@ class OrderProduct(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    
     quantity = models.PositiveIntegerField()
     price = models.FloatField()
     amount = models.FloatField()
@@ -100,9 +102,9 @@ class OrderProduct(models.Model):
 
     def __str__(self):
         return self.product.title
-
+    @property
     def amountnow(self):
-        if self.product.discount_price:
+        if self.product .discount_price:
             
            return self.quantity*self.product.discount_price
         else:

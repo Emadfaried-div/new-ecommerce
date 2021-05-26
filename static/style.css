@@ -485,7 +485,7 @@ textarea:focus {
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
-	min-height: 425px;
+	min-height: 475px;
 	width: 100%;
 }
 .bg-8 {
@@ -500,7 +500,7 @@ textarea:focus {
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
-	min-height: 770px;
+	min-height: 475px;
 	width: 100%;
 }
 .bg-11 {
@@ -2655,11 +2655,36 @@ textarea:focus {
 /*  2.7 Li's Static Home Banner
 /*----------------------------------------*/
 .li-static-home-image {
-	background-image: url(images/bg-banner/1.jpg);
+	background-image: url(images/new-banner/1.jpg);
 	background-size: cover;
 	height: 400px;
 	background-repeat: no-repeat;
 }
+.li-static-home-image1 {
+	background-image: url(images/new-banner/1.jpg);
+	background-size: cover;
+	height: 400px;
+	background-repeat: no-repeat;
+}
+.li-static-home-image2 {
+	background-image: url(images/new-banner/2.jpg);
+	background-size: cover;
+	height: 400px;
+	background-repeat: no-repeat;
+}
+.li-static-home-image3 {
+	background-image: url(images/new-banner/12.jpg);
+	background-size: cover;
+	height: 400px;
+	background-repeat: no-repeat;
+}
+.li-static-home-image4 {
+	background-image: url(images/new-banner/9.jpg);
+	background-size: cover;
+	height: 400px;
+	background-repeat: no-repeat;
+}
+
 .li-static-home-content {
 	padding-left: 75px;
 	position: absolute;

@@ -7,10 +7,11 @@ from .forms import SingUpForm, UserUpdateForm, ProfileUpdateForm
 from UserApp.models import UserProfile
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
-
+from django.utils.translation import gettext as _
 # Create your views here.
 
 def user_login(request):
+    
     if request.method== 'POST':
         username = request.POST['username']
         password = request.POST['password']

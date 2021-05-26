@@ -1,6 +1,8 @@
 
 {% load static %}
 {% load humanize %}
+{% load i18n %}
+
 
     <header class="li-header-4">
         <!-- Begin Header Top Area -->
@@ -11,7 +13,7 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="header-top-left">
                             <ul class="phone-wrap">
-                                <li><span>Telephone Enquiry:</span><a href="#">(+2){{setting.phone}}</a></li>
+                                <li><span>{%trans  'Telephone Enquiry' %}:</span><a href="#">(+2){{setting.phone}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -22,17 +24,17 @@
                             <ul class="ht-menu">
                                 <!-- Begin Setting Area -->
                                 <li>
-                                    <div class="ht-setting-trigger"><span>My Account</span></div>
+                                    <div class="ht-setting-trigger"><span>{% trans 'My Account' %}</span></div>
                                     <div class="setting ht-setting">
                                         <ul class="ht-setting-list">
                                             {% if request.user.is_authenticated %}
                                             <li><a href="#">Hi {{request.user.username}}</a></li>
-                                            <li><a href="{% url 'UserApp:userprofile' %}">My profile</a></li>
-                                            <li><a href="{% url 'orderapp:OrderCart' %}">Checkout</a></li>
-                                            <li><a href="{% url 'UserApp:user_logout' %}">Logout</a></li>
+                                            <li><a href="{% url 'UserApp:userprofile' %}">{%  trans  'My profile' %}</a></li>
+                                            <li><a href="{% url 'orderapp:OrderCart' %}">{%  trans 'Checkout' %} </a></li>
+                                            <li><a href="{% url 'UserApp:user_logout' %}">{% trans 'Logout' %}</a></li>
                                             {% else %}
-                                            <li><a href="{% url 'UserApp:user_login' %}">Login</a></li>
-                                            <li><a href="{% url 'UserApp:user_register' %}"> Register as a New customer?!</a></li>
+                                            <li><a href="{% url 'UserApp:user_login' %}">{% trans 'Login' %}</a></li>
+                                            <li><a href="{% url 'UserApp:user_register' %}">{% trans 'Register as a New customer?!' %}</a></li>
                                             {% endif %}
                                         </ul>
                                     </div>
@@ -40,7 +42,7 @@
                                 <!-- Setting Area End Here -->
                                 <!-- Begin Currency Area -->
                                 <li>
-                                    <span class="currency-selector-wrapper">Currency :</span>
+                                    <span class="currency-selector-wrapper">{% trans 'Currency' %} :</span>
                                     <div class="ht-currency-trigger"><span>EGP</span></div>
                                     <div class="currency ht-currency">
                                         <ul class="ht-setting-list">
@@ -52,14 +54,20 @@
                                 <!-- Currency Area End Here -->
                                 <!-- Begin Language Area -->
                                 <li>
-                                    <span class="language-selector-wrapper">Language :</span>
-                                    <div class="ht-language-trigger"><span>English</span></div>
-                                    <div class="language ht-language">
-                                        <ul class="ht-setting-list">
-                                            <li class="active"><a href="#"><img src="{% static  'images/menu/flag-icon/1.jpg' %}" alt="">English</a></li>
-                                            <li><a href="#"><img src="{% static  'images/menu/flag-icon/2.jpg' %}" alt="">Français</a></li>
-                                        </ul>
-                                    </div>
+                                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                                        {% get_current_language as LANGUAGE_CODE %}                                         
+                                        <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
+                                        
+                                        {% if LANGUAGE_CODE == 'ar' %}
+                                            <button type='submit' name='language' value='en' class="icon solid fa-language">
+                                                <span class="label"></span>English
+                                            </button>
+                                        {% else %}
+                                            <button type='submit' name='language' value='ar' class="icon solid fa-language">
+                                                <span class="label"></span>عربي
+                                            </button>
+                                        {% endif %}
+                                    </form>
                                 </li>
                                 <!-- Language Area End Here -->
                             </ul>
@@ -152,13 +160,13 @@
                                             {% endfor %}
                                            
                                         </ul>
-                                        <p class="minicart-total">SUBTOTAL: <span>EGP{{total_amount|intcomma}}</span></p>
+                                        <p class="minicart-total">{% trans 'subtotal' %}: <span>EGP{{total_amount|intcomma}}</span></p>
                                         <div class="minicart-button">
                                             <a href="{% url 'orderapp:cart_details' %}" class="li-button li-button-dark li-button-fullwidth li-button-sm">
-                                                <span>View Full Cart</span>
+                                                <span>{% trans 'View Full Cart' %}</span>
                                             </a>
                                             <a href="{% url 'orderapp:OrderCart' %}" class="li-button li-button-fullwidth li-button-sm">
-                                                <span>Checkout</span>
+                                                <span>{% trans 'checkout' %}</span>
                                             </a>
                                         </div>
                                     </div>
@@ -182,13 +190,13 @@
                        <div class="hb-menu">
                            <nav>
                                <ul>
-                                   <li ><a href="{% url 'ecomapp:home' %}">Home</a>
+                                   <li ><a href="{% url 'ecomapp:home' %}">{% trans 'Home' %}</a>
                                        
                                    </li>
                                    
-                                   <li><a href="{% url 'ecomapp:about' %}">About Us</a></li>
-                                   <li><a href="{% url 'ecomapp:coantact_dat' %}">Contact</a></li>
-                                   <li><a href="{% url 'ecomapp:Faq_details' %}">FAQ</a></li>
+                                   <li><a href="{% url 'ecomapp:about' %}">{% trans 'About Us' %}</a></li>
+                                   <li><a href="{% url 'ecomapp:coantact_dat' %}">{% trans 'Contact Us' %}</a></li>
+                                   <li><a href="{% url 'ecomapp:Faq_details' %}">{% trans 'FAQ' %}</a></li>
                                    
                                    
                                </ul>

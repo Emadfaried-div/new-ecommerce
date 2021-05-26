@@ -4,24 +4,25 @@ from django.contrib.auth.models import User
 from mptt.models import MPTTModel, TreeForeignKey
 from django.forms import ModelForm
 from django.db.models import Count,Sum,Avg
-
+from django.utils.translation import gettext as _
 # Create your models here.
 
 class Category(MPTTModel):
-    status=(
-        ("True","True"),
-        ("False","False"),
+    status = (
+        ('True', 'True'),
+        ('False', 'False'),
     )
-    parent = TreeForeignKey("self", on_delete=models.CASCADE, blank=True, null=True, related_name="children")
+    parent = TreeForeignKey(
+        'self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
 
     title = models.CharField(max_length=200)
     keywords = models.CharField(max_length=100)
-    image = models.ImageField(blank=True, null=True, upload_to="category/")
-    status = models.CharField(max_length=50,choices=status)
+    image = models.ImageField(blank=True, upload_to='category/')
+    details = models.TextField()
+    status = models.CharField(max_length=20, choices=status)
+    slug = models.SlugField(null=True, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    slug = models.SlugField(null=True, unique=True)
-
 
     class MPTTMeta:
         order_insertion_by = ['title']
@@ -33,30 +34,53 @@ class Category(MPTTModel):
 
 
 class Product(models.Model):
-    status=(
-        ("True","True"),
-        ("False","False"),
+    status = (
+        ('True', 'True'),
+        ('False', 'False'),)
+    VARIANTS = (
+        ('None', 'None'),
+        ('Size', 'Size'),
+        ('Color', 'Color'),
+        ('Size-Color', 'Size-Color'),
+
     )
-    title= models.CharField(max_length=200)
-    category= models.ForeignKey(Category,on_delete=models.CASCADE)
-    keywords = models.CharField(max_length=100,blank=True, null=True)
-    image = models.ImageField(blank=True, null=True, upload_to="product/")
-    discount_price= models.PositiveIntegerField(default=0,blank=True, null=True)
-    price = models.PositiveIntegerField(default=0)
-    amount = models.FloatField(default=0)
+    
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    
+    title = models.CharField(max_length=200)
+    
+    name = models.CharField(max_length=200,blank=True, null=True)
+  
+    keywords = models.CharField(max_length=100,)
+    image = models.ImageField(blank=True, upload_to='product/')
+    discount_price = models.DecimalField(decimal_places=2, max_digits=15, default=0)
+    price = models.DecimalField(decimal_places=2, max_digits=15)
+    amount = models.IntegerField(default=0)
+    
     min_amount = models.IntegerField(default=3)
+    variant = models.CharField(max_length=10, choices=VARIANTS, default='None')
+    
     detail = models.TextField()
-    status= models.CharField(max_length=50,choices=status)
+    
+    status = models.CharField(max_length=20, choices=status)
     slug = models.SlugField(null=True, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    
     updated_at = models.DateTimeField(auto_now=True)
+    
 
     def __str__(self):
         return self.title
 
+    def ImageUrl(self):
+        if self.image:
+            return self.image.url
+        else:
+            return ""
+
     def image_tag(self):
-        return mark_safe('<img src="{} " heights="70" width="60" \> '.format(self.image.url))
-    image_tag.short_description="image" 
+        return mark_safe('<img src="{}" heights="70" width="60" />'.format(self.image.url))
+    image_tag.short_description = 'Image'
 
     def average_review(self):
         reviews = Comment.objects.filter(
@@ -76,25 +100,11 @@ class Product(models.Model):
             cnt = (reviews['count'])
             return cnt
 
+    
 
 
-    def ImageUrl(self):
-        if self.image:
-            return self.image.url
-        else:
-            return ""   
 
-    def get_absolute_url(self):
 
-        return reversed("product_element", kwargs={'slug':self.slug})       
-
-class Images(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    title = models.CharField(max_length=20,blank=True)
-    image = models.ImageField(upload_to="product/")
-
-    def __str__(self):
-        return self.title
 
 
 
@@ -104,7 +114,8 @@ class Comment(models.Model):
         ("True","True"),
         ("False","False"),
     )
-    product=models.ForeignKey(Product,on_delete=models.CASCADE)
+    product=models.ForeignKey(Product,on_delete=models.CASCADE,null=True)
+    
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     subject=models.CharField(max_length=200,blank=True, null=True)
     comment=models.CharField(max_length=500,blank=True)
@@ -124,4 +135,71 @@ class CommenttForm(ModelForm):
         fields = ["subject","comment","rate"]
    
 
+
+
+ 
+
+class Images(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,blank=True,null=True)
     
+    
+    
+    title = models.CharField(max_length=20,blank=True,null=True)
+    image = models.ImageField(upload_to="product/")
+
+    def __str__(self):
+        return self.title     
+
+
+
+class Color(models.Model):
+    name = models.CharField(max_length=20)
+    code = models.CharField(max_length=10, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+    def color_tag(self):
+        if self.code is not None:
+            return mark_safe('<p style="background-color:{}">Color </p>'.format(self.code))
+        else:
+            return ""
+
+
+class Size(models.Model):
+    name = models.CharField(max_length=20)
+    code = models.CharField(max_length=10, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Variants(models.Model):
+    title = models.CharField(max_length=100, blank=True, null=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    
+    color = models.ForeignKey(Color, on_delete=models.CASCADE, blank=True, null=True)
+    size = models.ForeignKey(Size, on_delete=models.CASCADE, blank=True, null=True)
+    image_id = models.IntegerField(blank=True, null=True, default=0)
+    quantity = models.IntegerField(default=1)
+    price = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+
+    def __str__(self):
+        return self.title
+
+    def image(self):
+        img = Images.objects.get(id=self.image_id)
+        if img.id is not None:
+            varimage = img.image.url
+        else:
+            varimage = ""
+        return varimage
+
+    def image_tag(self):
+        img = Images.objects.get(id=self.image_id)
+        if img.id is not None:
+            return mark_safe('<img src="{}" height="50"/>'.format(img.image.url))
+        else:
+            return ""
+
+

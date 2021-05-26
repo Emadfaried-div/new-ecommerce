@@ -2,7 +2,9 @@ from django.db import models
 from django import forms
 from django.contrib.auth.models import User
 from product.models import Product
-
+from ckeditor.fields import RichTextField
+from mptt.models import MPTTModel, TreeForeignKey
+from django.utils.translation import gettext as _
 # Create your models here.
 
 class Setting(models.Model):
@@ -10,6 +12,7 @@ class Setting(models.Model):
         ('True', 'True'),
         ('False', 'False'),
     )
+    title=_("title")
     title = models.CharField(max_length=200)
     keyword = models.CharField(max_length=200)
     description = models.TextField()
@@ -73,6 +76,24 @@ class FAQ(models.Model):
 
 
 
+class BroadCast_Email(models.Model):
+    user= models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    subject = models.CharField(max_length=200)
+    created = models.DateTimeField(auto_now_add=True)
+    message = RichTextField(blank=False, null=False)
 
+    
+    def __unicode__(self):
+        return self.subject
+
+    class Meta:
+        verbose_name = "BroadCast Email to all Member"
+        verbose_name_plural = "BroadCast Email"
          
         
+class Banner(models.Model):
+    title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to="banner/")
+
+    def __str__(self):
+        return self.title
