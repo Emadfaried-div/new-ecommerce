@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-22 04:07+0200\n"
+"POT-Creation-Date: 2021-05-31 19:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,11 +30,11 @@ msgstr ""
 
 #: .\Lib\site-packages\adminlte3\templates\adminlte\lib\_main_header.html:150
 msgid "Change password"
-msgstr "كلمة المرور"
+msgstr ""
 
 #: .\Lib\site-packages\adminlte3\templates\adminlte\lib\_main_header.html:151
 msgid "Sign out"
-msgstr "تسجيل خروج"
+msgstr ""
 
 #: .\Lib\site-packages\adminlte3\templates\adminlte\login.html:19
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\change_form.html:70
@@ -52,18 +52,18 @@ msgstr ""
 
 #: .\Lib\site-packages\adminlte3\templates\adminlte\login.html:40
 msgid "Username"
-msgstr "أسم المستخدم"
+msgstr ""
 
 #: .\Lib\site-packages\adminlte3\templates\adminlte\login.html:44
 #: .\UserApp\templates\user_login.html:42
 msgid "Password"
-msgstr "كلمة المرور"
+msgstr ""
 
 #: .\Lib\site-packages\adminlte3\templates\adminlte\login.html:53
 #: .\UserApp\templates\user_login.html:35
 #: .\UserApp\templates\user_login.html:56 .\ecomapp\templates\header.html:36
 msgid "Login"
-msgstr "تسجيل دخول"
+msgstr ""
 
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\app_index.html:14
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\base.html:32
@@ -71,9 +71,13 @@ msgstr "تسجيل دخول"
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\change_list.html:39
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\index.html:21
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\object_history.html:13
-#: .\ecomapp\templates\header.html:193
+#: .\UserApp\templates\usercomment.html:39
+#: .\UserApp\templates\userpasswordupdate.html:40
+#: .\UserApp\templates\userupdate.html:40 .\ecomapp\templates\about.html:25
+#: .\ecomapp\templates\cart_details.html:23
+#: .\ecomapp\templates\header.html:188
 msgid "Home"
-msgstr "الصفحه الرئيسيه"
+msgstr ""
 
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\base_login.html:23
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\base_site.html:6
@@ -145,37 +149,39 @@ msgid "Unknown content"
 msgstr ""
 
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\lib\_main_header.html:39
+#: .\UserApp\templates\userprofile.html:77
 msgid "Change Password"
-msgstr "تغيير كلمة المرور"
+msgstr ""
 
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\lib\_main_header.html:40
 msgid "Sign Out"
-msgstr "تسجيل خروج"
+msgstr ""
 
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\login.html:37
 msgid "Forgotten your password or username?"
-msgstr "نسيت كلمة المرور أو اسم المستخدم؟"
+msgstr ""
 
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\login.html:44
 msgid "Log In"
-msgstr "تسجيل دخول"
+msgstr ""
 
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\login.html:53
 #, python-format
 msgid ""
 "You are authenticated as %(username)s, but are not authorized to access this "
 "page. Would you like to login to a different account?"
-msgstr "هل تريد التسجيل من حساب أخر؟"
+msgstr ""
 
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\object_history.html:33
 msgid "Date/time"
-msgstr "الوقت/التاريخ"
+msgstr ""
 
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\object_history.html:34
 msgid "User"
 msgstr ""
 
 #: .\Lib\site-packages\adminlte3_theme\templates\admin\object_history.html:35
+#: .\UserApp\templates\usercomment.html:84
 msgid "Action"
 msgstr ""
 
@@ -1460,7 +1466,7 @@ msgstr ""
 
 #: .\UserApp\templates\user_login.html:38
 msgid "Username "
-msgstr "اسم المستخدم"
+msgstr "أسم المستخدم"
 
 #: .\UserApp\templates\user_login.html:48
 msgid "Remember me"
@@ -1468,52 +1474,224 @@ msgstr "تذكرني"
 
 #: .\UserApp\templates\user_login.html:52
 msgid "Forgotten pasward?"
-msgstr "نسيت كلمة المرورو"
+msgstr "نسيت كلمة المرور"
 
 #: .\UserApp\templates\user_login.html:53 .\ecomapp\templates\header.html:37
 msgid "Register as a New customer?!"
-msgstr "تسجيل كمستخدم جديد"
+msgstr "التسجيل كمستخدم جديد"
+
+#: .\UserApp\templates\user_panel.html:11
+msgid "User Profile"
+msgstr "الملف الشخصي"
+
+#: .\UserApp\templates\user_panel.html:12
+msgid "My Orders"
+msgstr "الأوردارات السابقه"
+
+#: .\UserApp\templates\user_panel.html:13
+msgid "Order Products"
+msgstr "منتجات تم طلب شراءوها"
+
+#: .\UserApp\templates\user_panel.html:14
+msgid "My Comments"
+msgstr "تعليقاتي"
+
+#: .\UserApp\templates\user_panel.html:18 .\ecomapp\templates\header.html:34
+msgid "Logout"
+msgstr "تسجيل خروج"
+
+#: .\UserApp\templates\user_register.html:29
+#: .\UserApp\templates\user_register.html:52
+msgid "Register"
+msgstr "التسجيل "
+
+#: .\UserApp\templates\user_register.html:56
+msgid "Already have an account?Login from here"
+msgstr "بالفعل عندي حساب؟سجل دخول هنا"
+
+#: .\UserApp\templates\usercomment.html:41
+msgid "User Comment"
+msgstr "تعليقات المستخدم"
+
+#: .\UserApp\templates\usercomment.html:69
+#: .\UserApp\templates\userpasswordupdate.html:59
+#: .\UserApp\templates\userprofile.html:65
+#: .\UserApp\templates\userupdate.html:59
+msgid "User Panel"
+msgstr "لوحة المستخدم"
+
+#: .\UserApp\templates\usercomment.html:74
+msgid "User Comments"
+msgstr "تعليقات المستخدم "
+
+#: .\UserApp\templates\usercomment.html:78
+msgid "Item Image"
+msgstr "صورة المنتج"
+
+#: .\UserApp\templates\usercomment.html:79
+msgid "Product Name"
+msgstr "أسم المنتج"
+
+#: .\UserApp\templates\usercomment.html:80
+msgid "Comment Title"
+msgstr "عنوان التعليق"
+
+#: .\UserApp\templates\usercomment.html:81
+msgid "Comment"
+msgstr "تعليق"
+
+#: .\UserApp\templates\usercomment.html:82
+msgid "Comment Status"
+msgstr "حالة التعليق"
+
+#: .\UserApp\templates\usercomment.html:83
+msgid "Comment Date"
+msgstr "تاريخ التعليق"
+
+#: .\UserApp\templates\userpasswordupdate.html:42
+#: .\UserApp\templates\userupdate.html:42
+msgid "User Update"
+msgstr "تحديث بياناتي"
+
+#: .\UserApp\templates\userpasswordupdate.html:75
+#: .\UserApp\templates\userupdate.html:75
+msgid "Update your Information"
+msgstr "حدث بياناتك"
+
+#: .\UserApp\templates\userpasswordupdate.html:85
+#: .\UserApp\templates\userupdate.html:85
+msgid "Update"
+msgstr "تحديث"
+
+#: .\UserApp\templates\userprofile.html:71
+msgid "User Details"
+msgstr "تفاصيل المستخدم"
+
+#: .\UserApp\templates\userprofile.html:75
+msgid "Update Profile"
+msgstr "حدث ملفك"
+
+#: .\UserApp\templates\userprofile.html:84
+msgid "Name Surname :"
+msgstr "أسم المستخدم"
+
+#: .\UserApp\templates\userprofile.html:88
+msgid "Email"
+msgstr "البريد الألكتروني"
+
+#: .\UserApp\templates\userprofile.html:92
+msgid "Phone"
+msgstr "تليفون"
+
+#: .\UserApp\templates\userprofile.html:96
+msgid "Addres"
+msgstr "العنوان"
+
+#: .\UserApp\templates\userprofile.html:100
+msgid "City"
+msgstr "المدينه"
+
+#: .\UserApp\templates\userprofile.html:104
+msgid "Country"
+msgstr "البلد"
 
 #: .\ecomapp\models.py:15
 msgid "title"
 msgstr "العنوان"
 
-#: .\ecomapp\templates\category_product.html:27
+#: .\ecomapp\templates\about.html:26 .\ecomapp\templates\header.html:192
+msgid "About Us"
+msgstr "من نحن "
+
+#: .\ecomapp\templates\cart_details.html:24
+msgid "Shopping Cart"
+msgstr "سلة المشتروات"
+
+#: .\ecomapp\templates\cart_details.html:47
+msgid "remove"
+msgstr "إحذف"
+
+#: .\ecomapp\templates\cart_details.html:48
+msgid "images"
+msgstr "صور"
+
+#: .\ecomapp\templates\cart_details.html:49
+msgid "Product"
+msgstr "المنتج"
+
+#: .\ecomapp\templates\cart_details.html:50
+msgid "Unit Price"
+msgstr "سعر الوحده"
+
+#: .\ecomapp\templates\cart_details.html:51
+msgid "Quantity"
+msgstr "الكميه"
+
+#: .\ecomapp\templates\cart_details.html:52
+#: .\ecomapp\templates\cart_details.html:104
+msgid "Total"
+msgstr "الكل"
+
+#: .\ecomapp\templates\cart_details.html:101
+msgid "Cart totals"
+msgstr "قيمة مافي السله"
+
+#: .\ecomapp\templates\cart_details.html:106
+msgid "Continue shopping"
+msgstr "أستمر في التسوق"
+
+#: .\ecomapp\templates\cart_details.html:107
+msgid "Proceed to checkout"
+msgstr "إذهب للفع"
+
+#: .\ecomapp\templates\category_product.html:19
 msgid "Category Product"
-msgstr "منتجات الفئه"
-
-#: .\ecomapp\templates\category_product.html:79
-#: .\ecomapp\templates\content.html:439 .\ecomapp\templates\content.html:586
-#: .\ecomapp\templates\content.html:647
-msgid "New"
-msgstr "جديد"
-
-#: .\ecomapp\templates\category_product.html:111
-#: .\ecomapp\templates\content.html:85 .\ecomapp\templates\content.html:476
-#: .\ecomapp\templates\content.html:618 .\ecomapp\templates\content.html:679
-#: .\ecomapp\templates\content.html:760
-msgid "Add to cart"
-msgstr "أضف إلي سلة المشتريات"
+msgstr "فئة المنتج"
 
 #: .\ecomapp\templates\content.html:19
 msgid "New Arrival"
 msgstr "المنتجات الجديده"
 
-#: .\ecomapp\templates\content.html:428
-msgid "let's translate this "
-msgstr ""
+#: .\ecomapp\templates\content.html:20 .\ecomapp\templates\content.html:1469
+msgid "Bestseller"
+msgstr "الأكثر مبيعا"
 
-#: .\ecomapp\templates\content.html:568
+#: .\ecomapp\templates\content.html:90 .\ecomapp\templates\content.html:226
+#: .\ecomapp\templates\content.html:359 .\ecomapp\templates\content.html:542
+#: .\ecomapp\templates\content.html:657 .\ecomapp\templates\content.html:776
+#: .\ecomapp\templates\content.html:1404 .\ecomapp\templates\content.html:1518
+#: .\ecomapp\templates\content.html:1598
+msgid "Add to cart"
+msgstr "اضف للسله"
+
+#: .\ecomapp\templates\content.html:322 .\ecomapp\templates\content.html:380
+#: .\ecomapp\templates\content.html:510
+msgid "New"
+msgstr "جديد"
+
+#: .\ecomapp\templates\content.html:482
 msgid "Laptop"
-msgstr " عروض أجهزة اللابتوب"
+msgstr "عروض أجهزة لابتوب"
 
-#: .\ecomapp\templates\content.html:709
+#: .\ecomapp\templates\content.html:606
 msgid "TV & Audio"
 msgstr "عروض أجهزة التلفزيون والصوتيات"
 
+#: .\ecomapp\templates\content.html:720
+msgid "Hoeme Appliances"
+msgstr "عروض الأجهزه المنزليه"
+
+#: .\ecomapp\templates\content.html:1355
+msgid "Mobiles"
+msgstr "عروض الهواتف المحموله"
+
+#: .\ecomapp\templates\content.html:1549
+msgid "Tablets"
+msgstr "عروض أجهزة التابلت اللوحيه"
+
 #: .\ecomapp\templates\header.html:16
 msgid "Telephone Enquiry"
-msgstr "اتصل بنا علي"
+msgstr "استفسار عبر الهاتف"
 
 #: .\ecomapp\templates\header.html:27
 msgid "My Account"
@@ -1527,56 +1705,38 @@ msgstr "الملف الشخصي"
 msgid "Checkout"
 msgstr "الدفع"
 
-#: .\ecomapp\templates\header.html:34
-msgid "Logout"
-msgstr "تسجيل خروج"
-
 #: .\ecomapp\templates\header.html:45
 msgid "Currency"
 msgstr "العمله"
 
-#: .\ecomapp\templates\header.html:163
+#: .\ecomapp\templates\header.html:158
 msgid "subtotal"
-msgstr "قيمة الدفع"
+msgstr "القيمه"
 
-#: .\ecomapp\templates\header.html:166
+#: .\ecomapp\templates\header.html:161
 msgid "View Full Cart"
-msgstr "شاهد سلة مشترياتك"
+msgstr "شاهد سلة المشتروات"
 
-#: .\ecomapp\templates\header.html:169
+#: .\ecomapp\templates\header.html:164
 msgid "checkout"
 msgstr "الدفع"
 
-#: .\ecomapp\templates\header.html:197
-msgid "Abut Us"
-msgstr "من نحن"
-
-#: .\ecomapp\templates\header.html:198
+#: .\ecomapp\templates\header.html:193
 msgid "Contact Us"
 msgstr "تواصل معنا"
 
-#: .\ecomapp\templates\header.html:199
+#: .\ecomapp\templates\header.html:194
 msgid "FAQ"
 msgstr "أسئله شائعه"
 
 #: .\ecomapp\templates\slider1.html:13
-#, fuzzy
-#| msgid "category"
 msgid "Categories"
 msgstr "الفئات"
 
 #: .\ecomapp\templates\slider1.html:24
-#, fuzzy
-#| msgid "category"
 msgid "Sub Category"
-msgstr "الفئات"
+msgstr "فئه فرعيه"
 
 #: .\ecomapp\templates\slider1.html:71
 msgid "Shopping Now"
-msgstr "إضغط للمزيد"
-
-#~ msgid "homepage"
-#~ msgstr "الصفحه الرئيسيه"
-
-#~ msgid "detail"
-#~ msgstr "التفاصيل"
+msgstr "تسوق الأن"

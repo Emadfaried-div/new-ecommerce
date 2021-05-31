@@ -109,3 +109,7 @@ class OrderProduct(models.Model):
            return self.quantity*self.product.discount_price
         else:
             return self.quantity*self.product.price                  
+
+
+
+

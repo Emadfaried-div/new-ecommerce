@@ -26,7 +26,7 @@
                 <form action="{% url 'UserApp:user_register' %}" method="POST">
                     {% csrf_token %}
                     <div class="login-form">
-                        <h4 class="login-title">Register</h4>
+                        <h4 class="login-title">{% trans 'Register' %}</h4>
                         <div class="row">
                             <div class="col-md-6 col-12 mb-20">
                                 {{ form.username|as_crispy_field }}
@@ -49,11 +49,11 @@
                             <div class="col-12">
                                 
                                 
-                                <button class="register-button mt-0">Register</button>
+                                <button class="register-button mt-0">{% trans 'Register' %}</button>
                             </div>
                             <div class="col-12">
                                 
-                                <a href="{% url 'UserApp:user_login' %}">Already have an account?Login from here</a>
+                                <a href="{% url 'UserApp:user_login' %}">{% trans 'Already have an account?Login from here' %}</a>
                                 
                             </div>
                         </div>

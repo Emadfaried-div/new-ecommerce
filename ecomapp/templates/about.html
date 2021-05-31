@@ -13,7 +13,7 @@
            {% endblock  %}
            {% block slider %}
              {% include "slider1.html" %}
-           {% endblock slider %}
+           {% endblock slider %}                                          
 
 {% block another_content %}
 
@@ -22,8 +22,8 @@
     <div class="container">
         <div class="breadcrumb-content">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="active">About Us</li>
+                <li><a href="index.html">{% trans 'Home' %}</a></li>
+                <li class="active">{% trans 'About Us' %} </li>
             </ul>
         </div>
     </div>

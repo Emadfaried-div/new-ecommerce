@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------
-		Template Name: limupa - Digital Products Store ECommerce Bootstrap 4 Template
+		Template Name: limupa - Digital Products Store ECommerce banner banner-overlayootstrap 4 Template
 		Template URI: http://bootexperts.com
 		Description: This is digital products store html5 template for eCommerce websites, nice and clean design;
 		Author: HasTech
@@ -2680,6 +2680,13 @@ textarea:focus {
 }
 .li-static-home-image4 {
 	background-image: url(images/new-banner/9.jpg);
+	background-size: cover;
+	height: 400px;
+	background-repeat: no-repeat;
+}
+
+.li-static-home-image5 {
+	background-image: url(images/new-banner/11.jpg);
 	background-size: cover;
 	height: 400px;
 	background-repeat: no-repeat;

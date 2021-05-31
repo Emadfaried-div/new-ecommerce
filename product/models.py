@@ -50,10 +50,12 @@ class Product(models.Model):
     title = models.CharField(max_length=200)
     
     name = models.CharField(max_length=200,blank=True, null=True)
-  
+    name1 = models.CharField(max_length=200,blank=True, null=True)
+    name2 = models.CharField(max_length=200,blank=True, null=True)
     keywords = models.CharField(max_length=100,)
     image = models.ImageField(blank=True, upload_to='product/')
     discount_price = models.DecimalField(decimal_places=2, max_digits=15, default=0)
+    offer_price =models.DecimalField(decimal_places=2, max_digits=15, default=0)
     price = models.DecimalField(decimal_places=2, max_digits=15)
     amount = models.IntegerField(default=0)
     

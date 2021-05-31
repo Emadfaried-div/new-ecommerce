@@ -38,7 +38,7 @@ def home(request):
         sliding_images = Product.objects.all().order_by('id')  [:3]
         latest_products = Product.objects.all().order_by("-id")
         
-        products = Product.objects.all().order_by("-id")
+        products = Product.objects.all().order_by("id")
         
         context={"setting":setting,
                 "sliding_images":sliding_images,

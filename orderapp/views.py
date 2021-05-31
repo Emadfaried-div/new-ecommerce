@@ -7,6 +7,7 @@ from ecomapp.models import *
 from django.contrib.auth.decorators import login_required
 from django.utils.crypto import get_random_string
 from UserApp.models import UserProfile
+
 # Create your views here.
 
 
@@ -251,3 +252,6 @@ def userorderproduct_details(request,id,oid):
 
     return render(request,'user_order_pro_details.html', context)    
     
+
+
+

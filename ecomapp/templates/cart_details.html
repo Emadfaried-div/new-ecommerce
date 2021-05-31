@@ -19,9 +19,9 @@
 <div class="breadcrumb-area">
     <div class="container">
         <div class="breadcrumb-content">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Shopping Cart</li>
+            <ul>                                                                                    
+                <li><a href="{% url 'ecomapp:home' %}">{% trans 'Home' %}</a></li>
+                <li class="active">{% trans 'Shopping Cart' %}</li>
             </ul>
         </div>
         <div>
@@ -39,17 +39,17 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form action="#">
+                <form action="#">                                                                   
                     <div class="table-content table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th class="li-product-remove">remove</th>
-                                    <th class="li-product-thumbnail">images</th>
-                                    <th class="cart-product-name">Product</th>
-                                    <th class="li-product-price">Unit Price</th>
-                                    <th class="li-product-quantity">Quantity</th>
-                                    <th class="li-product-subtotal">Total</th>
+                                    <th class="li-product-remove">{% trans 'remove' %}</th>
+                                    <th class="li-product-thumbnail">{% trans 'images' %}</th>
+                                    <th class="cart-product-name">{% trans 'Product' %}</th>
+                                    <th class="li-product-price">{% trans 'Unit Price' %}</th>
+                                    <th class="li-product-quantity">{% trans 'Quantity' %}</th>
+                                    <th class="li-product-subtotal">{% trans 'Total' %}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -98,13 +98,13 @@
                     <div class="row">
                         <div class="col-md-5 ml-auto">
                             <div class="cart-page-total">
-                                <h2>Cart totals</h2>
+                                <h2>{% trans 'Cart totals' %}</h2>
                                 <ul>
                                     
-                                    <li>Total <span>EGP{{total_amount|intcomma }}</span></li>
+                                    <li>{% trans 'Total' %} <span>EGP{{total_amount|intcomma }}</span></li>
                                 </ul>
-                                <a class='btn btn-primary float-right' href='/'>Continue shopping</a>
-                                <a href="{% url 'orderapp:OrderCart' %}">Proceed to checkout</a>
+                                <a class='btn btn-primary float-right' href='/'>{% trans 'Continue shopping' %}</a>
+                                <a href="{% url 'orderapp:OrderCart' %}">{% trans 'Proceed to checkout' %}</a>
                             </div>
                         </div>
                     </div>

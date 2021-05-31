@@ -36,9 +36,9 @@ Usercomment
      <div class="container">
          <div>
              <ul class="breadcrumb">
-                 <li> <a href="">Home</a></li>
+                 <li> <a href="">{% trans 'Home' %}</a></li>
                  >>
-                 <li class="active">User Comment</li>
+                 <li class="active">{% trans 'User Comment' %}</li>
              </ul>
 
          </div>
@@ -66,22 +66,22 @@ Usercomment
              <div class="container">
                  <div class="row">
                      <div class="col-sm-12 col-md-12 col-xs-12 col-lg-3 mb-30">
-                         <h1 class="font-weight-bold">User Panel</h1>
+                         <h1 class="font-weight-bold">{% trans 'User Panel' %}</h1>
                         {% include 'user_panel.html' %} 
                      </div>
 
                      <div class="col-sm-12 col-md-12 col-lg-9 col-xs-12">
-                           <h1 class="text-center font-weight-bold">User Comments</h1>
+                           <h1 class="text-center font-weight-bold">{% trans 'User Comments' %}</h1>
                      <table class="shopping-cart-table table">
                                <thead>
                                    <tr>
-                                       <th class="text-center">Item Image</th>
-                                       <th class="text-center">Product Name </th>
-                                       <th class="text-center">Comment Title</th>
-                                       <th class="text-center">Comment</th>
-                                       <th class="text-center"> Comment Status</th>
-                                       <th class="text-center">Comment Date</th>
-                                       <th class="text-center">Action</th>
+                                       <th class="text-center">{% trans 'Item Image' %}</th>
+                                       <th class="text-center">{% trans 'Product Name' %} </th>
+                                       <th class="text-center">{% trans 'Comment Title' %}</th>
+                                       <th class="text-center">{% trans 'Comment' %}</th>
+                                       <th class="text-center">{% trans 'Comment Status' %} </th>
+                                       <th class="text-center">{% trans 'Comment Date' %}</th>
+                                       <th class="text-center">{% trans 'Action' %}</th>
                                     
                                        
                                    </tr>

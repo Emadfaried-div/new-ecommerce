@@ -1,12 +1,20 @@
+{% load static %}
+{% load humanize %}
+{% load i18n %}
+
+
+
+
+
 <div class="aside">
     <ul class="list-links">
-        <li><a href="{% url 'UserApp:userprofile' %}">User Profile</a></li>
-        <li><a href="{%url 'orderapp:orderlist'%}">My Orders</a></li>
-        <li><a href="{%url 'orderapp:orderproduct'%}">Order Products</a></li>
-        <li><a href="{%url 'UserApp:usercomment'%}">My Comments</a></li>
+        <li><a href="{% url 'UserApp:userprofile' %}">{% trans 'User Profile' %}</a></li>
+        <li><a href="{%url 'orderapp:orderlist'%}">{% trans 'My Orders' %}</a></li>
+        <li><a href="{%url 'orderapp:orderproduct'%}">{% trans 'Order Products' %}</a></li>
+        <li><a href="{%url 'UserApp:usercomment'%}">{% trans 'My Comments' %}</a></li>
         
         
         
-        <li><a href="{% url 'UserApp:user_logout' %}">Logout</a></li>
+        <li><a href="{% url 'UserApp:user_logout' %}">{% trans 'Logout' %}</a></li>
     </ul>
 </div>
