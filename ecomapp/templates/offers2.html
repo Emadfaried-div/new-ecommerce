@@ -1,0 +1,123 @@
+{% extends "index.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+
+
+{% block style %}{% endblock  %}
+{% block title %}  Single Product  {% endblock %}
+{% block description %}     {% endblock %}
+{% block keywords %}        {% endblock %}   
+ 
+
+           {% block header %}
+             {% include "header.html" %}
+           {% endblock  %}
+
+{% block another_content %}
+
+<div class="container">
+    <div class="row">
+        <section class="text-center mb-4" style=background-color:F0FFFF >
+
+            <div class="row wow fadeIn">
+    
+              {% for p in products %}
+              {% if p.name1 == "mobile"  %}
+              <div class="col-lg-3 col-md-6 card ">
+    
+                <div class="card  border-0 ">
+    
+                  <div class="view overlay">
+                    
+                    
+    
+                    {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="img-fluid> {% endcomment %}
+                    <a href="{% url 'ecomapp:product_single' p.slug %}"><img src="{{ p.image.url}}" class="card-img-top" style="height: 250px;object-fit:contain; " > </a>
+                    <h5 class="pt-2" >
+                      
+                      <a href="{% url 'ecomapp:product_single' p.slug %}" class="dark-grey-text  " style="text-decoration: none;" >{{ p.title|truncatechars:50 }}</a>
+                      
+                    
+                  </h5>
+                        
+                      <div class="mask rgba-white-slight"></div>
+                   
+                  </div>
+    
+                  <div class="card-body text-center">
+                    
+                      <h5 class="grey-text">{{ p.category}}</h5>
+                   
+                    
+                    <h4 class="font-weight-bold blue-text">
+                      <p class="lead">
+                        {% if p.discount_price %}
+                        <span class="mr-1">
+                          <del style="color:blue;">EGP{{ p.price }}</del>
+                        </span>
+                        <span style="color:red;">EGP{{ p.discount_price|intcomma }}</span>
+                        {% else %}
+                        <span style="color:red;">EGP{{p.price|intcomma }}</span>
+                        {% endif %}
+                      </p>
+                      <a href="{% url 'orderapp:Add_to_Shoping_cart' id=p.id %}" class="btn btn-primary">Add To Cart</a>
+                      
+                      </strong>
+                    </h4>
+    
+                  </div>
+    
+                </div>
+    
+              </div>
+              {% endif %}
+              {% endfor %}
+                
+              
+            </div>
+    
+          </section><hr>
+          <nav class="d-flex justify-content-center wow fadeIn">
+            <ul class="pagination pg-blue">
+    
+              {% if product_list.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ product_list.previous_page_number }}" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              {% endif %}
+                {% for i in product_list.paginator.page_range %}
+                {% if i == product_list.number %}
+              <li class="page-item active"><a class="page-link" >{{ i}}</a></li>
+              {% else %}
+              <li class="page-item "><a class="page-link" href="?page={{ i }}">{{ i}}</a></li>
+              {% endif %}
+    
+              {% endfor %}
+    
+              {% if product_list.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ product_list.next_page_number }}" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          </nav>
+    </div>
+    
+</div>
+
+
+
+
+{% endblock another_content %}
+
+{% block footer %}
+            {% include "footer.html" %}
+ {% endblock  %}

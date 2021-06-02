@@ -35,10 +35,11 @@ def home(request):
         category= Category.objects.all()
         
         setting = Setting.objects.get(id=1)
-        sliding_images = Product.objects.all().order_by('id')  [:3]
+        sliding_images = Product.objects.all().order_by('-id')  [:9]
         latest_products = Product.objects.all().order_by("-id")
         
         products = Product.objects.all().order_by("id")
+        fashionproducts=Product.objects.all().order_by("id")
         
         context={"setting":setting,
                 "sliding_images":sliding_images,
@@ -220,8 +221,8 @@ def send(request):
 
 
 
-class OffersView(TemplateView):
-    paginate_by= 4
+class OffersView(TemplateView): #for Tv,laptops
+    paginate_by= 8
     model=Product
     
     template_name = "offers.html"
@@ -230,6 +231,35 @@ class OffersView(TemplateView):
     def get_context_data(self, **kwargs):
         context=super().get_context_data(**kwargs)
         products=Product.objects.all().order_by("name")
+        page_number = self.request.GET.get('page')
+        paginator = Paginator(products, 8)
+        product_list = paginator.get_page(page_number)
+        category= Category.objects.all()
+        setting= Setting.objects.get(id=1)
+        faq = FAQ.objects.filter(status=True).order_by('created_at')
+        
+        
+        context={
+                'products':products,
+                'category': category,
+                'setting': setting,
+                'faq': faq,
+                'product_list':product_list,
+        }
+        return context
+
+
+
+class OffersView2(TemplateView): #mobiles
+    paginate_by= 4
+    model=Product
+    
+    template_name = "offers2.html"
+    
+    
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        products=Product.objects.all()
         page_number = self.request.GET.get('page')
         paginator = Paginator(products, 4)
         product_list = paginator.get_page(page_number)
@@ -246,3 +276,48 @@ class OffersView(TemplateView):
                 'product_list':product_list,
         }
         return context
+
+
+
+
+class OffersView3(TemplateView): #mobiles
+    paginate_by= 4
+    model=Product
+    
+    template_name = "offers3.html"
+    
+    
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        products=Product.objects.all()
+        page_number = self.request.GET.get('page')
+        paginator = Paginator(products, 4)
+        product_list = paginator.get_page(page_number)
+        category= Category.objects.all()
+        setting= Setting.objects.get(id=1)
+        faq = FAQ.objects.filter(status=True).order_by('created_at')
+        
+        
+        context={
+                'products':products,
+                'category': category,
+                'setting': setting,
+                'faq': faq,
+                'product_list':product_list,
+        }
+        return context        
+
+
+
+def all_product_view(request):
+        all_products=Product.objects.all()
+        category= Category.objects.all()
+        setting= Setting.objects.get(id=1)
+        context={
+                'all_products':all_products,
+                'category': category,
+                'setting': setting,
+                
+        }
+
+        return render(request, 'all_products.html', context)

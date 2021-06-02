@@ -2,14 +2,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #: .\EcomProject\urls.py:28
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-31 19:55+0200\n"
+"POT-Creation-Date: 2021-06-02 13:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,8 +74,7 @@ msgstr ""
 #: .\UserApp\templates\usercomment.html:39
 #: .\UserApp\templates\userpasswordupdate.html:40
 #: .\UserApp\templates\userupdate.html:40 .\ecomapp\templates\about.html:25
-#: .\ecomapp\templates\cart_details.html:23
-#: .\ecomapp\templates\header.html:188
+#: .\ecomapp\templates\cart_details.html:23 .\ecomapp\templates\header.html:188
 msgid "Home"
 msgstr ""
 
@@ -1642,7 +1641,7 @@ msgstr "أستمر في التسوق"
 
 #: .\ecomapp\templates\cart_details.html:107
 msgid "Proceed to checkout"
-msgstr "إذهب للفع"
+msgstr "إذهب للدفع"
 
 #: .\ecomapp\templates\category_product.html:19
 msgid "Category Product"
@@ -1652,42 +1651,96 @@ msgstr "فئة المنتج"
 msgid "New Arrival"
 msgstr "المنتجات الجديده"
 
-#: .\ecomapp\templates\content.html:20 .\ecomapp\templates\content.html:1469
+#: .\ecomapp\templates\content.html:20 .\ecomapp\templates\content.html:1513
 msgid "Bestseller"
 msgstr "الأكثر مبيعا"
 
 #: .\ecomapp\templates\content.html:90 .\ecomapp\templates\content.html:226
-#: .\ecomapp\templates\content.html:359 .\ecomapp\templates\content.html:542
-#: .\ecomapp\templates\content.html:657 .\ecomapp\templates\content.html:776
-#: .\ecomapp\templates\content.html:1404 .\ecomapp\templates\content.html:1518
-#: .\ecomapp\templates\content.html:1598
+#: .\ecomapp\templates\content.html:359 .\ecomapp\templates\content.html:540
+#: .\ecomapp\templates\content.html:681 .\ecomapp\templates\content.html:800
+#: .\ecomapp\templates\content.html:1448 .\ecomapp\templates\content.html:1562
+#: .\ecomapp\templates\content.html:1642
 msgid "Add to cart"
 msgstr "اضف للسله"
 
 #: .\ecomapp\templates\content.html:322 .\ecomapp\templates\content.html:380
-#: .\ecomapp\templates\content.html:510
+#: .\ecomapp\templates\content.html:508
 msgid "New"
 msgstr "جديد"
 
-#: .\ecomapp\templates\content.html:482
+#: .\ecomapp\templates\content.html:480
 msgid "Laptop"
 msgstr "عروض أجهزة لابتوب"
 
-#: .\ecomapp\templates\content.html:606
+#: .\ecomapp\templates\content.html:630
 msgid "TV & Audio"
 msgstr "عروض أجهزة التلفزيون والصوتيات"
 
-#: .\ecomapp\templates\content.html:720
-msgid "Hoeme Appliances"
+#: .\ecomapp\templates\content.html:715
+msgid "Sale Offer"
+msgstr "عرض خصم"
+
+#: .\ecomapp\templates\content.html:715
+msgid "This Week"
+msgstr "هذا الأسبوع"
+
+#: .\ecomapp\templates\content.html:716
+#, fuzzy
+#| msgid "Hoeme Appliances"
+msgid "Home appliances offers"
 msgstr "عروض الأجهزه المنزليه"
 
-#: .\ecomapp\templates\content.html:1355
+#: .\ecomapp\templates\content.html:717
+msgid "gift form SOUQNA"
+msgstr "هديه من موقعنا "
+
+#: .\ecomapp\templates\content.html:719
+msgid "discount up to :"
+msgstr "خصم يصل إلي"
+
+#: .\ecomapp\templates\content.html:723 .\ecomapp\templates\slider1.html:71
+msgid "Shopping Now"
+msgstr "تسوق الأن"
+
+#: .\ecomapp\templates\content.html:744
+#, fuzzy
+#| msgid "Hoeme Appliances"
+msgid "Home Appliances"
+msgstr "عروض الأجهزه المنزليه"
+
+#: .\ecomapp\templates\content.html:1399
 msgid "Mobiles"
 msgstr "عروض الهواتف المحموله"
 
-#: .\ecomapp\templates\content.html:1549
+#: .\ecomapp\templates\content.html:1593
 msgid "Tablets"
 msgstr "عروض أجهزة التابلت اللوحيه"
+
+#: .\ecomapp\templates\content.html:1672
+msgid "FASHION"
+msgstr "الموضه والأزياء"
+
+#: .\ecomapp\templates\content.html:1676
+msgid "Casual Shoes"
+msgstr "أحذيه كاجوال"
+
+#: .\ecomapp\templates\content.html:1679
+msgid "Men"
+msgstr "رجال"
+
+#: .\ecomapp\templates\content.html:1682
+msgid "Women"
+msgstr "نساء"
+
+#: .\ecomapp\templates\content.html:1703
+#, fuzzy
+#| msgid "Add to cart"
+msgid "add to cart"
+msgstr "اضف للسله"
+
+#: .\ecomapp\templates\content.html:2115
+msgid "Tools and workshop supplies"
+msgstr "العده ولوازم الورش"
 
 #: .\ecomapp\templates\header.html:16
 msgid "Telephone Enquiry"
@@ -1729,6 +1782,10 @@ msgstr "تواصل معنا"
 msgid "FAQ"
 msgstr "أسئله شائعه"
 
+#: .\ecomapp\templates\offers3.html:61
+msgid "our offer price:"
+msgstr "السعر داخل العرض"
+
 #: .\ecomapp\templates\slider1.html:13
 msgid "Categories"
 msgstr "الفئات"
@@ -1736,7 +1793,3 @@ msgstr "الفئات"
 #: .\ecomapp\templates\slider1.html:24
 msgid "Sub Category"
 msgstr "فئه فرعيه"
-
-#: .\ecomapp\templates\slider1.html:71
-msgid "Shopping Now"
-msgstr "تسوق الأن"

@@ -14,7 +14,9 @@ urlpatterns = [
     path("search/",searchview,name="searchview"),
     path("faq/",Faq_details,name="Faq_details"),
     path("send/",send,name="send"),
-    path("offers/", OffersView.as_view(), name= "offers"),
-   
+    path("offers/", OffersView.as_view(), name= "offers"), #for laptops and TV
+    path("offers2/", OffersView2.as_view(), name= "offers2"), #OffersView2
+    path("offers3/",OffersView3.as_view(), name="offers3"), # for home appliances  
+    path("all-products/",all_product_view,name="allproducts")   #to show by product name
     
 ]

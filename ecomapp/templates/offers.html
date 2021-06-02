@@ -37,7 +37,7 @@
                     <a href="{% url 'ecomapp:product_single' p.slug %}"><img src="{{ p.image.url}}" class="card-img-top" style="height: 250px;object-fit:contain; " > </a>
                     <h5 class="pt-2" >
                       
-                      <a href="{% url 'ecomapp:product_single' p.slug %}" class="dark-grey-text  " style="text-decoration: none;" >{{ p.title }}</a>
+                      <a href="{% url 'ecomapp:product_single' p.slug %}" class="dark-grey-text  " style="text-decoration: none;" >{{ p.title|truncatechars:30 }}</a>
                       
                     
                   </h5>
@@ -55,11 +55,11 @@
                       <p class="lead">
                         {% if p.discount_price %}
                         <span class="mr-1">
-                          <h6 class="text-info">Price:</h6><del style="color:red;">EGP{{ p.price }}</del>
+                          <del style="color:blue;">EGP{{ p.price }}</del>
                         </span>
-                        <span style="color:red;">{{ p.discount_price|intcomma }}EGP</span>
+                        <span style="color:red;">EGP{{ p.discount_price|intcomma }}</span>
                         {% else %}
-                        <span style="color:red;">{{p.price|intcomma }}\EGP</span>
+                        <span style="color:red;">EGP{{p.price|intcomma }}</span>
                         {% endif %}
                       </p>
                       <a href="{% url 'orderapp:Add_to_Shoping_cart' id=p.id %}" class="btn btn-primary">Add To Cart</a>
@@ -89,7 +89,7 @@
                     <a href="{% url 'ecomapp:product_single' p.slug %}"><img src="{{ p.image.url}}" class="card-img-top" style="height: 250px;object-fit:contain; " > </a>
                     <h5 class="pt-2" >
                       
-                      <a href="{% url 'ecomapp:product_single' p.slug %}" class="dark-grey-text  " style="text-decoration: none;" >{{ p.title }}</a>
+                      <a href="{% url 'ecomapp:product_single' p.slug %}" class="dark-grey-text  " style="text-decoration: none;" >{{ p.title|truncatechars:40 }}</a>
                       
                     
                   </h5>
@@ -107,11 +107,11 @@
                       <p class="lead">
                         {% if p.discount_price %}
                         <span class="mr-1">
-                          <h6 class="text-info">Price:</h6><del style="color:red;">EGP{{ p.price }}</del>
+                          <del style="color:blue;">EGP{{ p.price }}</del>
                         </span>
-                        <span style="color:red;">{{ p.discount_price|intcomma }}EGP</span>
+                        <span style="color:red;">EGP{{ p.discount_price|intcomma }}</span>
                         {% else %}
-                        <span style="color:red;">{{p.price|intcomma }}\EGP</span>
+                        <span style="color:red;">EGP{{p.price|intcomma }}\EGP</span>
                         {% endif %}
                       </p>
                       <a href="{% url 'orderapp:Add_to_Shoping_cart' id=p.id %}" class="btn btn-primary">Add To Cart</a>
