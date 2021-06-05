@@ -540,7 +540,7 @@ textarea:focus {
 .slider-active .owl-item.active .slider-progress {
 	-webkit-animation: 5000ms ease-in-out 0s normal none 1 running timebar;
 	animation: 10000ms ease-in-out 0s normal none 1 running timebar;
-	background: rgba(0, 0, 0, .3);
+	background: red;
 	height: 5px;
 	left: 0;
 	opacity: 0.8;
@@ -1319,11 +1319,11 @@ textarea:focus {
 }
 /*Phone Wrap*/
 .phone-wrap > li > span {
-	font-size: 12px;
+	font-size: 18px;
 	color: #242424;
 }
 .phone-wrap > li > a {
-	font-size: 12px;
+	font-size: 18px;
 	color: #242424;
 }
 /*Header Top Menu*/
@@ -1358,7 +1358,7 @@ textarea:focus {
 	padding-right: 0;
 }
 .ht-menu > li span {
-	font-size: 12px;
+	font-size: 18px;
 }
 /*Header Top Currency*/
 .currency-selector-wrapper, .language-selector-wrapper {
@@ -1750,7 +1750,7 @@ textarea:focus {
 	display: flex;
 	color: #242424;
 	text-transform: uppercase;
-	font-size: 14px;
+	font-size: 17px;
 	line-height: 35px;
 	font-weight: 500;
 	padding: 8px 0;
@@ -2700,8 +2700,8 @@ textarea:focus {
 }
 .li-static-home-content > p {
 	margin: 0;
-	color: #242424;
-	font-size: 14px;
+	color: blue;
+	font-size: 20px;
 	margin-bottom: 20px;
 	font-weight: 400;
 	z-index: 99;
@@ -2711,21 +2711,21 @@ textarea:focus {
 }
 .li-static-home-content > h2 {
 	font-weight: 400;
-	font-size: 36px;
+	font-size: 42px;
 	line-height: 30px;
 	letter-spacing: -.025em;
 }
 .li-static-home-content > h2 {
-	color: #242424;
+	color: blue;
 	font-weight: 400;
-	font-size: 36px;
+	font-size: 42px;
 	line-height: 30px;
 	letter-spacing: -.025em;
 }
 .li-static-home-content > p.schedule{
 	font-size: 14px;
-	color: #242424;
-	margin-top: 20px;
+	color:blue;
+	margin-top: 30px;
 	margin-bottom: 53px;
 }
 .li-static-home-content > p.schedule span {
@@ -3129,7 +3129,7 @@ text-align: center;
 	height: 40px;
 	line-height: 39px;
 	overflow: hidden;
-	font-size: 13px;
+	font-size: 14px;
 }
 .category-menu-list > ul > li > a:hover,
 .cat-dropdown > li > a:hover{
@@ -3220,7 +3220,7 @@ li.rx-parent a.rx-show::after {
     list-style: none;
 }
 .cat-dropdown > li > a{
-    font-size: 14px;
+    font-size: 18px;
 }
 .cat-dropdown > li > a:hover{
     color: #fed700;

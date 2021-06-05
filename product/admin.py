@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Category, Product, Images, Comment, Color, Variants, Size
+from .models import Category, Product, Images, Comment, Color, Variants, Size,Seller
 from mptt.admin import DraggableMPTTAdmin
 import admin_thumbnails
 
@@ -59,10 +59,10 @@ class ProductVariantsInline(admin.TabularInline):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['title', 'status', 'created_at', 'updated_at', 'image_tag']
-    list_filter = ['title', 'created_at']
+    list_display = ['title', 'seller','status', 'created_at', 'updated_at', 'image_tag']
+    list_filter = ['title', 'created_at','seller']
     list_per_page = 10
-    search_fields = ['title', 'new_price', 'detail']
+    search_fields = ['title', 'new_price', 'detail','seller']
     inlines = [productImageInline, ProductVariantsInline]
     prepopulated_fields = {'slug': ('title',)}
 
@@ -98,3 +98,4 @@ class VariantsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Variants, VariantsAdmin)
+admin.site.register(Seller)

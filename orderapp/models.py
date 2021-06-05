@@ -8,8 +8,7 @@ from django_countries.fields import CountryField
 # Create your models here.
 
 class ShopCart(models.Model):
-    product=models.ForeignKey(Product,on_delete=models.CASCADE,null=True)
-    
+    product= models.ForeignKey(Product,on_delete=models.CASCADE,null=True)
     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     quantity=models.PositiveIntegerField()
 
@@ -92,7 +91,7 @@ class OrderProduct(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    
+    seller = models.CharField(max_length=200, blank=True)
     quantity = models.PositiveIntegerField()
     price = models.FloatField()
     amount = models.FloatField()
@@ -109,7 +108,4 @@ class OrderProduct(models.Model):
            return self.quantity*self.product.discount_price
         else:
             return self.quantity*self.product.price                  
-
-
-
 

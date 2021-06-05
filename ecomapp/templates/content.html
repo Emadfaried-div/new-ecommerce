@@ -9,7 +9,9 @@
     </div>
     {% endfor %}{% endif %}
 </div>
-
+<hr>
+<br>
+<br>
 <div class="product-area pt-60 pb-50">
     <div class="container">
         <div class="row">
@@ -477,7 +479,7 @@
                 <div class="li-section-title">
                     
                     <h2>
-                        <a  href="{% url 'ecomapp:allproducts' %}"><span>{% trans 'Laptop' %}</span></a>
+                        <a  href="{% url 'ecomapp:allproducts' %}"><h6 style="color:blue;">{% trans 'Press here' %}</h6>&nbsp;&nbsp;<span>{% trans 'Laptop' %}</span></a>
                     </h2>
                     <ul class="li-sub-category-list">
                         
@@ -630,7 +632,8 @@
             <div class="col-lg-12">
                 <div class="li-section-title">
                     <h2>
-                        <span>{%  trans 'TV & Audio' %}</span>
+                        <a  href="{% url 'ecomapp:allproducts2' %}"><h6 style="color:blue;">{% trans 'Press here' %}</h6>&nbsp;&nbsp;<span>{%  trans 'TV & Audio' %}</span></a>
+                        
                     </h2>
                     <ul class="li-sub-category-list">
                         
@@ -745,8 +748,10 @@
             <!-- Begin Li's Tab Menu Area -->
             <div class="col-lg-12">
                 <div class="li-product-tab li-trending-product-tab">
-                    <h2>
-                        <span>{% trans  'Home Appliances' %}</span>
+                    <h2>                                                                   
+                        
+                        <a  href="{% url 'ecomapp:allproducts3' %}"><h2 style="color:blue;">{% trans 'Press here' %}</h2>&nbsp;&nbsp;<span>{% trans  'Home Appliances' %}</span></span></a>
+                        
                     </h2>
                     <ul class="nav li-product-menu li-trending-product-menu">
                        <li><a class="active" data-toggle="tab" href="#home1"><span>Sanai</span></a></li>
@@ -1402,7 +1407,8 @@
             <div class="col-lg-12">
                 <div class="li-section-title">
                     <h2>
-                        <span>{%trans  'Mobiles' %}</span>
+                        <a  href="{% url 'ecomapp:allproducts4' %}"><h6 style="color:blue;">{% trans 'Press here' %}</h6>&nbsp;&nbsp;<span>{%trans  'Mobiles' %}</span></span></a>
+                        
                     </h2>
                 </div>
                 <div class="row">
@@ -1410,7 +1416,7 @@
                        
                           
                         {% for p in products %}
-                        {% if p.name1 == "mobile"%}
+                        {% if p.name == "mobile"%}
 
                         <div class="col-lg-12">
                             <!-- single-product-wrap start -->
@@ -1516,7 +1522,8 @@
             <div class="col-lg-12">
                 <div class="li-section-title">
                     <h2>
-                        <span>{% trans  'Bestseller' %}</span>
+                        <a  href="{% url 'ecomapp:allproducts6' %}"><h6 style="color:blue;">{% trans 'Press here' %}</h6>&nbsp;&nbsp;<span>{% trans  'Bestseller' %}</span></span></a>
+                        
                     </h2>
                 </div>
                 <div class="row">
@@ -1596,8 +1603,10 @@
             <div class="col-lg-12">
                 <div class="li-section-title">
                     <h2>
-                        <span>{% trans  'Tablets' %}</span>
+                        <a  href="{% url 'ecomapp:allproducts5' %}"><h6 style="color:blue;">{% trans 'Press here' %}</h6>&nbsp;&nbsp;<span>{% trans  'Tablets' %}</span></span></a>
+                        
                     </h2>
+                    
                 </div>
                 <div class="row">
                     <div class="product-active owl-carousel">
@@ -1675,7 +1684,7 @@
 <!---Fashion-->
 
 <div class="container">
-    <h2 class="title text-center">{% trans 'FASHION' %}</h2><!-- End .title -->
+    <h2 class="title text-center"><a  href="{% url 'ecomapp:allproducts7' %}"><h6 style="color:blue;">{% trans 'Press here' %}</h6>&nbsp;&nbsp;<span>{% trans 'FASHION' %}</span></span></a></h2><!-- End .title -->
 
     <ul class="nav nav-pills nav-border-anim justify-content-center" role="tablist">
         <li class="nav-item">
@@ -2100,8 +2109,8 @@
 <hr>
 <!---Tools and workshop supplies-->
 <div class="container">
-    <h2 class="title text-center">{% trans 'and workshop supplies' %}</h2><!-- End .title -->
-
+    
+    <h2 class="title text-center"><a  href="{% url 'ecomapp:allproducts8' %}"><h6 style="color:blue;">{% trans 'Press here' %}</h6>&nbsp;&nbsp;<span>{% trans 'and workshop supplies' %}</span></span></a></h2><!-- End .title -->
     <ul class="nav nav-pills nav-border-anim justify-content-center" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="tab-new-link" data-toggle="tab" href="#tab-new" role="tab" aria-controls="tab-new" aria-selected="true">{% trans 'workshop supplies' %}</a>

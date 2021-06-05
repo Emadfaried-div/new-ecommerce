@@ -308,16 +308,151 @@ class OffersView3(TemplateView): #mobiles
         return context        
 
 
-
-def all_product_view(request):
+       
+def all_product_view(request):   #for All LAPTOP PRODUCTS
         all_products=Product.objects.all()
         category= Category.objects.all()
         setting= Setting.objects.get(id=1)
+        paginate_by=2
+        paginator = Paginator(all_products, 2)
+        page_number = request.GET.get('page')
+        product_list = paginator.get_page(page_number)
         context={
                 'all_products':all_products,
                 'category': category,
                 'setting': setting,
-                
+                "product_list":product_list,
         }
 
         return render(request, 'all_products.html', context)
+
+
+def all_product_view2(request):    #FOR ALL TV PRODUCTS          
+        all_products=Product.objects.all()
+        category= Category.objects.all()
+        setting= Setting.objects.get(id=1)
+        paginate_by=2
+        paginator = Paginator(all_products, 2)
+        page_number = request.GET.get('page')
+        product_list = paginator.get_page(page_number)
+        context={
+                'all_products':all_products,
+                'category': category,
+                'setting': setting,
+                "product_list":product_list,
+        }
+
+        return render(request, 'all_products2.html', context)
+
+
+def all_product_view3(request):    #FOR ALL HOME APPLIANCES         
+        all_products=Product.objects.all()
+        category= Category.objects.all()
+        setting= Setting.objects.get(id=1)
+        paginate_by=4
+        paginator = Paginator(all_products, 4)
+        page_number = request.GET.get('page')
+        product_list = paginator.get_page(page_number)
+        context={
+                'all_products':all_products,
+                'category': category,
+                'setting': setting,
+                "product_list":product_list,
+        }
+
+        return render(request, 'all_products3.html', context)        
+
+
+def all_product_view4(request):    #FOR ALL MOBILES          
+        all_products=Product.objects.all()
+        category= Category.objects.all()
+        setting= Setting.objects.get(id=1)
+        paginate_by=2
+        paginator = Paginator(all_products, 2)
+        page_number = request.GET.get('page')
+        product_list = paginator.get_page(page_number)
+        context={
+                'all_products':all_products,
+                'category': category,
+                'setting': setting,
+                "product_list":product_list,
+        }
+
+        return render(request, 'all_products4.html', context)
+
+
+def all_product_view5(request):    #FOR ALL BESTSELLER         
+        all_products=Product.objects.all()
+        category= Category.objects.all()
+        setting= Setting.objects.get(id=1)
+        paginate_by=2
+        paginator = Paginator(all_products, 2)
+        page_number = request.GET.get('page')
+        product_list = paginator.get_page(page_number)
+        context={
+                'all_products':all_products,
+                'category': category,
+                'setting': setting,
+                "product_list":product_list,
+        }
+
+        return render(request, 'all_products5.html', context)        
+
+def all_product_view6(request):    #FOR ALL TABLETS         
+        all_products=Product.objects.all()
+        category= Category.objects.all()
+        setting= Setting.objects.get(id=1)
+        paginate_by=2
+        paginator = Paginator(all_products, 2)
+        page_number = request.GET.get('page')
+        product_list = paginator.get_page(page_number)
+        context={
+                'all_products':all_products,
+                'category': category,
+                'setting': setting,
+                "product_list":product_list,
+        }
+
+        return render(request, 'all_products6.html', context)        
+
+
+
+def all_product_view7(request):    #FOR ALL FASHIONS          
+        all_products=Product.objects.all()
+        category= Category.objects.all()
+        setting= Setting.objects.get(id=1)
+        paginate_by=2
+        paginator = Paginator(all_products, 2)
+        page_number = request.GET.get('page')
+        product_list = paginator.get_page(page_number)
+        context={
+                'all_products':all_products,
+                'category': category,
+                'setting': setting,
+                "product_list":product_list,
+        }
+
+        return render(request, 'all_products7.html', context)        
+
+
+
+def all_product_view8(request):    #FOR ALL TOOLS           
+        all_products=Product.objects.all()
+        category= Category.objects.all()
+        setting= Setting.objects.get(id=1)
+        paginate_by=2
+        paginator = Paginator(all_products, 16)
+        page_number = request.GET.get('page')
+        product_list = paginator.get_page(page_number)
+        context={
+                'all_products':all_products,
+                'category': category,
+                'setting': setting,
+                "product_list":product_list,
+        }
+
+        return render(request, 'all_products8.html', context)        
+
+
+
+

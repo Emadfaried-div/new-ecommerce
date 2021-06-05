@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-02 13:44+0200\n"
+"POT-Creation-Date: 2021-06-02 22:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1651,15 +1651,15 @@ msgstr "فئة المنتج"
 msgid "New Arrival"
 msgstr "المنتجات الجديده"
 
-#: .\ecomapp\templates\content.html:20 .\ecomapp\templates\content.html:1513
+#: .\ecomapp\templates\content.html:20 .\ecomapp\templates\content.html:1523
 msgid "Bestseller"
 msgstr "الأكثر مبيعا"
 
 #: .\ecomapp\templates\content.html:90 .\ecomapp\templates\content.html:226
 #: .\ecomapp\templates\content.html:359 .\ecomapp\templates\content.html:540
-#: .\ecomapp\templates\content.html:681 .\ecomapp\templates\content.html:800
-#: .\ecomapp\templates\content.html:1448 .\ecomapp\templates\content.html:1562
-#: .\ecomapp\templates\content.html:1642
+#: .\ecomapp\templates\content.html:685 .\ecomapp\templates\content.html:808
+#: .\ecomapp\templates\content.html:1458 .\ecomapp\templates\content.html:1573
+#: .\ecomapp\templates\content.html:1655
 msgid "Add to cart"
 msgstr "اضف للسله"
 
@@ -1672,75 +1672,97 @@ msgstr "جديد"
 msgid "Laptop"
 msgstr "عروض أجهزة لابتوب"
 
-#: .\ecomapp\templates\content.html:630
+#: .\ecomapp\templates\content.html:633
 msgid "TV & Audio"
 msgstr "عروض أجهزة التلفزيون والصوتيات"
 
-#: .\ecomapp\templates\content.html:715
+#: .\ecomapp\templates\content.html:719
 msgid "Sale Offer"
 msgstr "عرض خصم"
 
-#: .\ecomapp\templates\content.html:715
+#: .\ecomapp\templates\content.html:719
 msgid "This Week"
 msgstr "هذا الأسبوع"
 
-#: .\ecomapp\templates\content.html:716
+#: .\ecomapp\templates\content.html:720
 #, fuzzy
 #| msgid "Hoeme Appliances"
 msgid "Home appliances offers"
 msgstr "عروض الأجهزه المنزليه"
 
-#: .\ecomapp\templates\content.html:717
+#: .\ecomapp\templates\content.html:721
 msgid "gift form SOUQNA"
 msgstr "هديه من موقعنا "
 
-#: .\ecomapp\templates\content.html:719
+#: .\ecomapp\templates\content.html:723
 msgid "discount up to :"
 msgstr "خصم يصل إلي"
 
-#: .\ecomapp\templates\content.html:723 .\ecomapp\templates\slider1.html:71
+#: .\ecomapp\templates\content.html:727 .\ecomapp\templates\slider1.html:71
 msgid "Shopping Now"
 msgstr "تسوق الأن"
 
-#: .\ecomapp\templates\content.html:744
+#: .\ecomapp\templates\content.html:751 .\ecomapp\templates\content.html:1408
+#: .\ecomapp\templates\content.html:1523 .\ecomapp\templates\content.html:1604
+#: .\ecomapp\templates\content.html:1685 .\ecomapp\templates\content.html:2111
+msgid "Press here"
+msgstr "أضغط للمشاهده"
+
+#: .\ecomapp\templates\content.html:751
 #, fuzzy
 #| msgid "Hoeme Appliances"
 msgid "Home Appliances"
 msgstr "عروض الأجهزه المنزليه"
 
-#: .\ecomapp\templates\content.html:1399
+#: .\ecomapp\templates\content.html:1408
 msgid "Mobiles"
 msgstr "عروض الهواتف المحموله"
 
-#: .\ecomapp\templates\content.html:1593
+#: .\ecomapp\templates\content.html:1604
 msgid "Tablets"
 msgstr "عروض أجهزة التابلت اللوحيه"
 
-#: .\ecomapp\templates\content.html:1672
+#: .\ecomapp\templates\content.html:1685
 msgid "FASHION"
 msgstr "الموضه والأزياء"
 
-#: .\ecomapp\templates\content.html:1676
+#: .\ecomapp\templates\content.html:1689
 msgid "Casual Shoes"
 msgstr "أحذيه كاجوال"
 
-#: .\ecomapp\templates\content.html:1679
+#: .\ecomapp\templates\content.html:1692
 msgid "Men"
 msgstr "رجال"
 
-#: .\ecomapp\templates\content.html:1682
+#: .\ecomapp\templates\content.html:1695
 msgid "Women"
 msgstr "نساء"
 
-#: .\ecomapp\templates\content.html:1703
+#: .\ecomapp\templates\content.html:1716 .\ecomapp\templates\content.html:2141
 #, fuzzy
 #| msgid "Add to cart"
 msgid "add to cart"
 msgstr "اضف للسله"
 
-#: .\ecomapp\templates\content.html:2115
-msgid "Tools and workshop supplies"
+#: .\ecomapp\templates\content.html:2111
+#, fuzzy
+#| msgid "Tools and workshop supplies"
+msgid "and workshop supplies"
 msgstr "العده ولوازم الورش"
+
+#: .\ecomapp\templates\content.html:2114
+#, fuzzy
+#| msgid "Tools and workshop supplies"
+msgid "workshop supplies"
+msgstr "العده ولوازم الورش"
+
+#: .\ecomapp\templates\content.html:2117
+msgid "Tools"
+msgstr "عده وأدوات"
+
+#: .\ecomapp\templates\content.html:2120
+msgid "Others"
+msgstr "أخري"
 
 #: .\ecomapp\templates\header.html:16
 msgid "Telephone Enquiry"

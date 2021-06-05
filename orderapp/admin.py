@@ -9,7 +9,7 @@ list_filter=['user']
 
 class OrderProductline(admin.TabularInline):
     model = OrderProduct
-    readonly_fields = ('user', 'product', 'price', 'quantity', 'amount')
+    readonly_fields = ('user', 'product','price', 'quantity', 'amount')
     can_delete = False
     extra = 0
 
@@ -27,9 +27,9 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 class OrderProductAdmin(admin.ModelAdmin):
-    list_display = ['user', 'product', 'price', 'quantity', 'amount']
-    list_filter = ['user','created_at']
-    search_fields = ('user', 'price', 'product','quantity', 'created_at' )
+    list_display = ['user',"seller" ,'product', 'price', 'quantity', 'amount']
+    list_filter = ['user','created_at','seller']
+    search_fields = ('user', 'price', 'product','quantity', 'created_at','seller' )
 
 
 

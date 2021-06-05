@@ -56,16 +56,16 @@
                             {% endif%}
                             <div class="slider-progress"></div>
                             <div class="slider-content">
-                                <h5>Sale Offer <span>-20% Off</span> This Week</h5>
-                                <h1>{{p.title}}|256GB</h1>
-                                <h5>{{p.description|truncatewords:9 }}</h5>
+                                <h5 style="font-size:larger ;color:red;">Sale Offer <span>-20% Off</span> This Week</h5>
+                                <h1 style="font: size 22px; color:red;">{{p.title}}</h1>
+                                <h5 style="color:red;">{{p.description|truncatewords:9 }}</h5>
                                 {% if p.discount_price %}
                                     <span class="mr-1" style="color:red;">
                                         <del>EGP{{ p.price }}</del>
                                     </span>
-                                    <span>EGP{{ p.discount_price }}</span>
+                                    <span class="mr-1" style="color:red;">EGP{{ p.discount_price }}</span>
                                     {% else %}
-                                    <span>EGP{{ p.price }}</span>
+                                    <span class="mr-1" style="color:red; font-size:larger;">EGP{{ p.price }}</span>
                                 {% endif %}
                                 <div class="default-btn slide-btn">
                                     <a class="links" href="{% url 'ecomapp:product_single' p.slug %}">{% trans 'Shopping Now' %}</a>
@@ -84,3 +84,4 @@
         </div>
     </div>
 </div>
+<br>

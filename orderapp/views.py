@@ -97,6 +97,7 @@ def cart_delete(request,id):
 @login_required()
 def OrderCart(request):
     current_user=request.user
+    
     shoping_cart=ShopCart.objects.filter(user_id=current_user.id)
     totalamount=0
     for rs in shoping_cart:
@@ -117,6 +118,7 @@ def OrderCart(request):
             dat.transaction_id = form.cleaned_data['transaction_id']
             dat.transaction_image = form.cleaned_data['transaction_image']
             dat.user_id = current_user.id
+            
             dat.total = totalamount
             dat.ip = request.META.get('REMOTE_ADDR')
             ordercode = get_random_string(length=12, allowed_chars='ABCDE01234')  # random cod

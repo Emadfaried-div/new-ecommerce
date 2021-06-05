@@ -5,6 +5,7 @@ from mptt.models import MPTTModel, TreeForeignKey
 from django.forms import ModelForm
 from django.db.models import Count,Sum,Avg
 from django.utils.translation import gettext as _
+
 # Create your models here.
 
 class Category(MPTTModel):
@@ -33,6 +34,18 @@ class Category(MPTTModel):
     
 
 
+
+class Seller (models.Model):
+
+    name = models.CharField(max_length=200)
+    phone = models.CharField(max_length=200)
+    address = models.CharField(max_length=1000)
+    def __str__(self):
+        return self.name
+
+
+
+
 class Product(models.Model):
     status = (
         ('True', 'True'),
@@ -46,7 +59,7 @@ class Product(models.Model):
     )
     
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    
+    seller = models.ForeignKey(Seller, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     
     name = models.CharField(max_length=200,blank=True, null=True)

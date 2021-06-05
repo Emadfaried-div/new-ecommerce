@@ -68,7 +68,7 @@ Order Showing
                                     <th class="li-product-stock-status"> Total Price</th>
                                     
                                     
-                                    <th class="li-product-add-cart">Created_AT</th>
+                                    <th class="li-product-add-cart">Status</th>
                                     <th class="li-product-add-cart">Action</th>
 
                                     
@@ -92,7 +92,8 @@ Order Showing
                                     <td class="li-product-price"><span class="amount">EGP{{p.amountnow}}</span></td>
                                     
                                     
-                                    <td class="li-product-price"><span class="amount">{{p.created_at}}</span></td>
+                                    <td class="li-product-stock-status"><span class="in-stock">{{p.status}}</span>
+                                    </td>
                                     <td class="li-product-add-cart"><a href="{%url 'orderapp:userorderproduct_details' id=p.id oid=p.order_id%}">Details</a></td>
                                     
 
