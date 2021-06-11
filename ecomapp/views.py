@@ -97,6 +97,7 @@ class SingleProductView(TemplateView):
                 context= super().get_context_data(**kwargs)
                 url_slug = self.kwargs["slug"]
                 single_product = Product.objects.get(slug=url_slug)
+                single_product.view_count+=1
                 setting= Setting.objects.get(id=1)
                 images = Images.objects.filter(product__slug=url_slug)
                 products = Product.objects.all().order_by("id")[:5]
@@ -112,9 +113,12 @@ class SingleProductView(TemplateView):
                 "category":category,
                 #"comment_show":comment_show,
                 "products":products,
+                "single_product.view_count":single_product.view_count,
                
                 
                 }
+                return context
+                '''
                 if single_product.variant != "None":  # Product have variants
 
                         if self.request.method == 'POST':  # if we select color
@@ -130,8 +134,8 @@ class SingleProductView(TemplateView):
                                 variant = Variants.objects.get(id=variants[0].id)
                                 context.update({'sizes': sizes, 'colors': colors,
                                         'variant': variant, 'query': query
-                                        })
-                return context
+                                        })'''
+               
 
 
 def ajaxcolor(request):

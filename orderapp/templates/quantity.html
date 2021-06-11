@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% load humanize %}
+{% load static %}
+{% load i18n %}
+{% block style %}{% endblock  %}
+{% block title %}  Single Product  {% endblock %}
+{% block description %}     {% endblock %}
+{% block keywords %}        {% endblock %}   
+ 
+
+           {% block header %}
+             {% include "header.html" %}
+           {% endblock  %}
+          
+
+{% block another_content %}
+
+
+
+<td class="quantity">
+    <label>Quantity</label>
+    <div class="cart-plus-minus">
+        <input class="cart-plus-minus-box" value="{{p.quantity}}" type="text">
+            
+        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+        <div class="inc qtybutton"><i class="fa fa-angle-up"></a><a href="{% url 'orderapp:managecart' cp.id %}?action=inc"  ></a></i></div>
+       
+    </div>
+</td>
+{% endblock another_content %}
+
+{% block footer %}
+            {% include "footer.html" %}
+ {% endblock  %}

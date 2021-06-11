@@ -30,6 +30,8 @@ class Category(MPTTModel):
 
     def __str__(self):
         return self.title
+    class Meta:
+        verbose_name_plural= "Categories"
 
     
 
@@ -79,6 +81,7 @@ class Product(models.Model):
     
     status = models.CharField(max_length=20, choices=status)
     slug = models.SlugField(null=True, unique=True)
+    view_count = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     
     updated_at = models.DateTimeField(auto_now=True)
@@ -217,4 +220,5 @@ class Variants(models.Model):
         else:
             return ""
 
-
+    class Meta:
+        verbose_name_plural= "Variants"

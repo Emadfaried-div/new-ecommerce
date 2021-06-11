@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-02 22:06+0200\n"
+"POT-Creation-Date: 2021-06-11 16:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1579,6 +1579,7 @@ msgid "Email"
 msgstr "البريد الألكتروني"
 
 #: .\UserApp\templates\userprofile.html:92
+#: .\orderapp\templates\order_form.html:144
 msgid "Phone"
 msgstr "تليفون"
 
@@ -1591,6 +1592,7 @@ msgid "City"
 msgstr "المدينه"
 
 #: .\UserApp\templates\userprofile.html:104
+#: .\orderapp\templates\order_form.html:131
 msgid "Country"
 msgstr "البلد"
 
@@ -1615,6 +1617,7 @@ msgid "images"
 msgstr "صور"
 
 #: .\ecomapp\templates\cart_details.html:49
+#: .\orderapp\templates\order_form.html:169
 msgid "Product"
 msgstr "المنتج"
 
@@ -1627,19 +1630,20 @@ msgid "Quantity"
 msgstr "الكميه"
 
 #: .\ecomapp\templates\cart_details.html:52
-#: .\ecomapp\templates\cart_details.html:104
+#: .\ecomapp\templates\cart_details.html:97
+#: .\orderapp\templates\order_form.html:170
 msgid "Total"
 msgstr "الكل"
 
-#: .\ecomapp\templates\cart_details.html:101
+#: .\ecomapp\templates\cart_details.html:94
 msgid "Cart totals"
 msgstr "قيمة مافي السله"
 
-#: .\ecomapp\templates\cart_details.html:106
+#: .\ecomapp\templates\cart_details.html:99
 msgid "Continue shopping"
 msgstr "أستمر في التسوق"
 
-#: .\ecomapp\templates\cart_details.html:107
+#: .\ecomapp\templates\cart_details.html:100
 msgid "Proceed to checkout"
 msgstr "إذهب للدفع"
 
@@ -1647,120 +1651,121 @@ msgstr "إذهب للدفع"
 msgid "Category Product"
 msgstr "فئة المنتج"
 
-#: .\ecomapp\templates\content.html:19
+#: .\ecomapp\templates\content.html:21
 msgid "New Arrival"
 msgstr "المنتجات الجديده"
 
-#: .\ecomapp\templates\content.html:20 .\ecomapp\templates\content.html:1523
+#: .\ecomapp\templates\content.html:22 .\ecomapp\templates\content.html:1525
 msgid "Bestseller"
 msgstr "الأكثر مبيعا"
 
-#: .\ecomapp\templates\content.html:90 .\ecomapp\templates\content.html:226
-#: .\ecomapp\templates\content.html:359 .\ecomapp\templates\content.html:540
-#: .\ecomapp\templates\content.html:685 .\ecomapp\templates\content.html:808
-#: .\ecomapp\templates\content.html:1458 .\ecomapp\templates\content.html:1573
-#: .\ecomapp\templates\content.html:1655
+#: .\ecomapp\templates\content.html:92 .\ecomapp\templates\content.html:228
+#: .\ecomapp\templates\content.html:361 .\ecomapp\templates\content.html:542
+#: .\ecomapp\templates\content.html:687 .\ecomapp\templates\content.html:810
+#: .\ecomapp\templates\content.html:1460 .\ecomapp\templates\content.html:1575
+#: .\ecomapp\templates\content.html:1657
 msgid "Add to cart"
 msgstr "اضف للسله"
 
-#: .\ecomapp\templates\content.html:322 .\ecomapp\templates\content.html:380
-#: .\ecomapp\templates\content.html:508
+#: .\ecomapp\templates\content.html:324 .\ecomapp\templates\content.html:382
+#: .\ecomapp\templates\content.html:510
 msgid "New"
 msgstr "جديد"
 
-#: .\ecomapp\templates\content.html:480
+#: .\ecomapp\templates\content.html:482 .\ecomapp\templates\content.html:635
+#: .\ecomapp\templates\content.html:753 .\ecomapp\templates\content.html:1410
+#: .\ecomapp\templates\content.html:1525 .\ecomapp\templates\content.html:1606
+#: .\ecomapp\templates\content.html:1687 .\ecomapp\templates\content.html:2113
+msgid "Press here"
+msgstr "أضغط للمشاهده"
+
+#: .\ecomapp\templates\content.html:482
 msgid "Laptop"
 msgstr "عروض أجهزة لابتوب"
 
-#: .\ecomapp\templates\content.html:633
+#: .\ecomapp\templates\content.html:635
 msgid "TV & Audio"
 msgstr "عروض أجهزة التلفزيون والصوتيات"
 
-#: .\ecomapp\templates\content.html:719
+#: .\ecomapp\templates\content.html:721
 msgid "Sale Offer"
 msgstr "عرض خصم"
 
-#: .\ecomapp\templates\content.html:719
+#: .\ecomapp\templates\content.html:721
 msgid "This Week"
 msgstr "هذا الأسبوع"
 
-#: .\ecomapp\templates\content.html:720
+#: .\ecomapp\templates\content.html:722
 #, fuzzy
 #| msgid "Hoeme Appliances"
 msgid "Home appliances offers"
 msgstr "عروض الأجهزه المنزليه"
 
-#: .\ecomapp\templates\content.html:721
+#: .\ecomapp\templates\content.html:723
 msgid "gift form SOUQNA"
 msgstr "هديه من موقعنا "
 
-#: .\ecomapp\templates\content.html:723
+#: .\ecomapp\templates\content.html:725
 msgid "discount up to :"
 msgstr "خصم يصل إلي"
 
-#: .\ecomapp\templates\content.html:727 .\ecomapp\templates\slider1.html:71
+#: .\ecomapp\templates\content.html:729 .\ecomapp\templates\slider1.html:71
 msgid "Shopping Now"
 msgstr "تسوق الأن"
 
-#: .\ecomapp\templates\content.html:751 .\ecomapp\templates\content.html:1408
-#: .\ecomapp\templates\content.html:1523 .\ecomapp\templates\content.html:1604
-#: .\ecomapp\templates\content.html:1685 .\ecomapp\templates\content.html:2111
-msgid "Press here"
-msgstr "أضغط للمشاهده"
-
-#: .\ecomapp\templates\content.html:751
+#: .\ecomapp\templates\content.html:753
 #, fuzzy
 #| msgid "Hoeme Appliances"
 msgid "Home Appliances"
 msgstr "عروض الأجهزه المنزليه"
 
-#: .\ecomapp\templates\content.html:1408
+#: .\ecomapp\templates\content.html:1410
 msgid "Mobiles"
 msgstr "عروض الهواتف المحموله"
 
-#: .\ecomapp\templates\content.html:1604
+#: .\ecomapp\templates\content.html:1606
 msgid "Tablets"
 msgstr "عروض أجهزة التابلت اللوحيه"
 
-#: .\ecomapp\templates\content.html:1685
+#: .\ecomapp\templates\content.html:1687
 msgid "FASHION"
 msgstr "الموضه والأزياء"
 
-#: .\ecomapp\templates\content.html:1689
+#: .\ecomapp\templates\content.html:1691
 msgid "Casual Shoes"
 msgstr "أحذيه كاجوال"
 
-#: .\ecomapp\templates\content.html:1692
+#: .\ecomapp\templates\content.html:1694
 msgid "Men"
 msgstr "رجال"
 
-#: .\ecomapp\templates\content.html:1695
+#: .\ecomapp\templates\content.html:1697
 msgid "Women"
 msgstr "نساء"
 
-#: .\ecomapp\templates\content.html:1716 .\ecomapp\templates\content.html:2141
+#: .\ecomapp\templates\content.html:1718 .\ecomapp\templates\content.html:2143
 #, fuzzy
 #| msgid "Add to cart"
 msgid "add to cart"
 msgstr "اضف للسله"
 
-#: .\ecomapp\templates\content.html:2111
+#: .\ecomapp\templates\content.html:2113
 #, fuzzy
 #| msgid "Tools and workshop supplies"
 msgid "and workshop supplies"
 msgstr "العده ولوازم الورش"
 
-#: .\ecomapp\templates\content.html:2114
+#: .\ecomapp\templates\content.html:2116
 #, fuzzy
 #| msgid "Tools and workshop supplies"
 msgid "workshop supplies"
 msgstr "العده ولوازم الورش"
 
-#: .\ecomapp\templates\content.html:2117
+#: .\ecomapp\templates\content.html:2119
 msgid "Tools"
 msgstr "عده وأدوات"
 
-#: .\ecomapp\templates\content.html:2120
+#: .\ecomapp\templates\content.html:2122
 msgid "Others"
 msgstr "أخري"
 
@@ -1815,3 +1820,65 @@ msgstr "الفئات"
 #: .\ecomapp\templates\slider1.html:24
 msgid "Sub Category"
 msgstr "فئه فرعيه"
+
+#: .\orderapp\templates\order_form.html:54
+msgid "Returning customer?"
+msgstr "العوده لصفحة مستخدم؟"
+
+#: .\orderapp\templates\order_form.html:54
+msgid "Click here to login"
+msgstr "أضغط لتسجيل الدخول"
+
+#: .\orderapp\templates\order_form.html:81
+msgid "Have a coupon?"
+msgstr "هل لديك كوبون؟"
+
+#: .\orderapp\templates\order_form.html:81
+msgid "Click here to enter your code"
+msgstr "اضغط لإدخال الكود"
+
+#: .\orderapp\templates\order_form.html:101
+msgid "Billing Details"
+msgstr "تفاصل الفاتوره"
+
+#: .\orderapp\templates\order_form.html:106
+#, fuzzy
+#| msgid "Product Name"
+msgid "First Name"
+msgstr "أسم المنتج"
+
+#: .\orderapp\templates\order_form.html:112
+msgid "Last Name"
+msgstr "الأسم الأخير"
+
+#: .\orderapp\templates\order_form.html:118
+#, fuzzy
+#| msgid "Addres"
+msgid " Your Address"
+msgstr "عنوانك"
+
+#: .\orderapp\templates\order_form.html:125
+msgid "Town / City"
+msgstr "المدينه"
+
+#: .\orderapp\templates\order_form.html:150
+#, fuzzy
+#| msgid "My Account"
+msgid "Amount"
+msgstr "حسابي"
+
+#: .\orderapp\templates\order_form.html:164
+msgid "Your order"
+msgstr "تفاصيل الأوردر"
+
+#: .\orderapp\templates\order_form.html:188
+#, fuzzy
+#| msgid "Cart totals"
+msgid "Cart Subtotal"
+msgstr "قيمة مافي السله"
+
+#: .\orderapp\templates\order_form.html:192
+#, fuzzy
+#| msgid "Order Products"
+msgid "Order Total"
+msgstr "منتجات تم طلب شراءوها"

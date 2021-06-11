@@ -16,4 +16,5 @@ urlpatterns=[
     path('OrderDetails/<int:id>/',user_order_details,name='user_order_details'),
     path('OrderproductDetails/<int:id>/<int:oid>/',userorderproduct_details,name='userorderproduct_details'),
     
+    
 ]

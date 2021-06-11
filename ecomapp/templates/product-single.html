@@ -24,6 +24,8 @@
             <ul>
                 <li><a href="{% url 'ecomapp:home' %}">Home</a></li>
                 <li class="active">Single Product</li>
+                
+                 '
             </ul>
         </div>
     </div>
@@ -74,6 +76,7 @@
             </div>
 
             <div class="col-lg-7 col-md-6">
+                <h5  style="color: red;">Viewed Times :  <span style="color:blue;">{{single_product.view_count}}</span></h5>
                 <div class="product-details-view-content pt-60">
                     <div class="product-info">
                         <h2>{{single_product.title}}</h2>
@@ -102,7 +105,7 @@
                         </div>
                         <div class="product-desc   ">
                             <p>
-                                <span>{{single_product.detail}}
+                                <span>{{single_product.detail|slice:":365"}}...
                                 </span>
                             </p>
                         </div>
@@ -117,10 +120,10 @@
                                     <label>Quantity</label>
                                     <div class="cart-plus-minus">
                                         
-                                        <input class="cart-plus-minus-box" value="1" min="1" 
+                                        <input  value="1" min="1" 
                                         max="{{single_product.amount}}"  type="number" name="quantity">
-                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                        <div class="dec qtybutton"></div>
+                                        <div class="inc qtybutton"></div>
                                     </div>
                                 </div>
                               
@@ -129,15 +132,8 @@
                             </form>
                         </div>
                         <div class="product-additional-info pt-25">
-                            <a class="wishlist-btn" href="wishlist.html"><i class="fa fa-heart-o"></i>Add to wishlist</a>
-                            <div class="product-social-sharing pt-25">
-                                <ul>
-                                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
-                                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
-                                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i>Google +</a></li>
-                                    <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
-                                </ul>
-                            </div>
+                            
+                            
                         </div>
                         <div class="block-reassurance">
                             <ul>
@@ -302,13 +298,14 @@
                                                                     </p>
 
                                                                     <div class="feedback-btn pb-15">
+
                                                                         <a href="#" class="close" data-dismiss="modal"
                                                                             aria-label="Close">Close</a><hr>
                                                                             {% if user.id is not Nones %}
 
+                                                                            <br>
 
-
-                                                                    <input type="submit" class="btn btn-secondary"
+                                                                    <input type="submit" class="btn btn-primary"
                                                                         value="submit">
                                                                     {% else %}
                                                                     <h3>You should login first</h3>

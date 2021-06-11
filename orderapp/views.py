@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect, reverse
+from django.views.generic import ListView, TemplateView , DetailView , View, CreateView, FormView
 from product.models import Category, Product, Images
 from django.contrib import messages
 from orderapp .models import *
@@ -63,8 +64,8 @@ def cart_details(request):
     category= Category.objects.all()
     setting = Setting.objects.get(id=1)
     cart_product= ShopCart.objects.filter(user_id=current_user.id)
-    total_amount = 0
     
+    total_amount = 0
     
     for p in cart_product:
         
